@@ -1,0 +1,22 @@
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background-color: #C4C4C480;
+    margin: 5rem 0 0 0;
+}
+
+.footer__text {
+    padding: 1rem 0;
+}
+
+.footer__icon {
+    padding: 1rem 0;
+    cursor: pointer;
+}
+
+.icon {
+    font-size: 1.85rem;
+    padding: 0 1.2rem;
+}
