@@ -1,13 +1,14 @@
 import "./NavBar.css"
+import { Link } from 'react-router-dom';
 
 const NavBar = () => {
   return (
     <>
       <nav className="navigation">
         <div className="navigation__logo">
-          <a href="/index.html">
-            <h3 className="navigation__heading">EagleStore</h3>
-          </a>
+         
+          <Link to="/"> <h3 className="navigation__heading">EagleStore</h3> </Link>
+         
         </div>
         <ul className="navbar__search">
           <input className="search__box" type="search" placeholder="Search" />
@@ -18,11 +19,11 @@ const NavBar = () => {
 
         <ul className="navbar__right">
         <div>
-        <a
+        <Link to="/product"
             href="./Pages/Authentication/login.html"
           >
            Explore
-          </a>
+          </Link>
         </div>
       
           <div className="badge">
