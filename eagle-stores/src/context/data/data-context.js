@@ -1,7 +1,7 @@
 import axios from "axios";
 import { createContext, useContext, useEffect , useReducer } from "react";
 import {ACTION_TYPE} from "../../utils/actionType"
-import { initialistate , DataReducer } from "../../reducer/DataReducer";
+import { initialistate , DataReducer } from "../../reducer";
 
 const DataContext = createContext()
 

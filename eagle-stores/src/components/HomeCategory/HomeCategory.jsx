@@ -1,6 +1,6 @@
 import "./HomeCategory.css" 
 
-const HomeCategory = () => {
+export const HomeCategory = () => {
   return (
     <>
     <div className="category__container">
@@ -41,5 +41,5 @@ const HomeCategory = () => {
   );
 };
 
-export default HomeCategory;
+
 

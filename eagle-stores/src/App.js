@@ -1,8 +1,7 @@
 import "./App.css";
 import { Routes, Route } from 'react-router-dom';
-import NavBar from "./components/NavBar/NavBar"
 import { Home, Product } from "./pages";
-import Footer from "./components/Footer/Footer";
+import { Footer , NavBar } from "./components";
 import Mockman from "mockman-js";
 
 function MockAPI() {

@@ -1,6 +1,6 @@
 import "./Carousel.css"
 
-const Carousel = () => {
+export const Carousel = () => {
     return (
         <>
             <section id="carousel">
@@ -16,4 +16,4 @@ const Carousel = () => {
     )
 }
 
-export default Carousel
+

@@ -1,4 +1,4 @@
-import { useData } from "../../../../context/data/data-context";
+import { useData } from "../../../../context";
 import { ACTION_TYPE } from "../../../../utils/actionType";
 import "./ProductAside.css";
 
