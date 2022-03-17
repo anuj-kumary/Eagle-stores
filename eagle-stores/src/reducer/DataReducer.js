@@ -42,7 +42,7 @@ export const DataReducer = (state, action) => {
         },
       };
 
-    case ACTION_TYPE.filterChange:
+    case ACTION_TYPE.FILTER_CHANGE:
       return {
         ...state,
         filter: {
@@ -51,7 +51,7 @@ export const DataReducer = (state, action) => {
         },
       };
 
-    case ACTION_TYPE.clearFilter:
+    case ACTION_TYPE.CLEAR_FILTER:
       const clearCategories = Object.keys(state.filter.categories).reduce(
         (acc, curr) => {
           return {

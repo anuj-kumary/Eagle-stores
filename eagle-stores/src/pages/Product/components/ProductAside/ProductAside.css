@@ -24,6 +24,9 @@
 .filter__heading{
     padding: .2rem 0; 
 }
+.clearFilterreturn{
+    cursor: pointer;
+}
 .slider{
     width: 100%;
     height: .438rem;

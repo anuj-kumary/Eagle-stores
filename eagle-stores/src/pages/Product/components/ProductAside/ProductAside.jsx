@@ -22,10 +22,10 @@ export const ProductAside = () => {
         <div className="filter__head">
           <h4>Filters</h4>
           <p
-            className="clearFilterreturn "
+            className="clearFilterreturn"
             onClick={() => {
               dispatch({
-                type: ACTION_TYPE.clearFilter,
+                type: ACTION_TYPE.CLEAR_FILTER,
               });
             }}
           >
@@ -47,7 +47,7 @@ export const ProductAside = () => {
             max={maxRange}
             onChange={(e) => {
               dispatch({
-                type: ACTION_TYPE.filterChange,
+                type: ACTION_TYPE.FILTER_CHANGE,
                 payload: {
                   filterType: "priceRange",
                   filterValue: e.target.value,
@@ -68,7 +68,7 @@ export const ProductAside = () => {
                       checked={state.filter.categories[item]}
                       onChange={() => {
                         dispatch({
-                          type: ACTION_TYPE.filterChange,
+                          type: ACTION_TYPE.FILTER_CHANGE,
                           payload: {
                             filterType: "categories",
                             filterValue: {
@@ -99,7 +99,7 @@ export const ProductAside = () => {
                       checked={state.filter.rating === num ? true : false}
                       onChange={() => {
                         dispatch({
-                          type: ACTION_TYPE.filterChange,
+                          type: ACTION_TYPE.FILTER_CHANGE,
                           payload: {
                             filterType: "rating",
                             filterValue: num,
@@ -127,7 +127,7 @@ export const ProductAside = () => {
                     checked={state.filter.sortBy === value ? true : false}
                     onChange={() => {
                       dispatch({
-                        type: ACTION_TYPE.filterChange,
+                        type: ACTION_TYPE.FILTER_CHANGE,
                         payload: {
                           filterType: "sortBy",
                           filterValue: value,
