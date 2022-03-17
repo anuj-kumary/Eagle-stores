@@ -5,6 +5,7 @@ export const initialistate = {
     categories: {},
     sortBy: "",
     rating: "",
+    search: "",
     priceRange: 0,
   },
   products: [],

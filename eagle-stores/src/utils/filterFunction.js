@@ -34,16 +34,26 @@ const sortByPrice = (data, sortBy) => {
   if (sortBy === "") return data;
   if (sortBy === "HighToLow") {
     return [...data].sort((a, b) => b.price - a.price);
-  } return [...data].sort((a, b) => a.price - b.price);
+  }
+  return [...data].sort((a, b) => a.price - b.price);
 };
 
 const priceRangeFilter = (data, maxValue) => {
   return data.filter((el) => Number(el.price) <= maxValue);
 };
 
+const searchFilter = (data, searchText) => {
+  if (searchText === "") return data;
+  return data.filter(
+    (item) =>
+      item.name.toLowerCase().startsWith(searchText.toLowerCase()) ||
+      item.category.toLowerCase().startsWith(searchText.toLowerCase())
+  );
+};
 export {
   categoryFilter,
   ratingFilter,
   priceRangeFilter,
-  sortByPrice
+  sortByPrice,
+  searchFilter,
 };

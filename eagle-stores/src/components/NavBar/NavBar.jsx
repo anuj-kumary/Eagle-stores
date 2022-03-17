@@ -1,31 +1,46 @@
-import "./NavBar.css"
-import { Link } from 'react-router-dom';
+import "./NavBar.css";
+import { Link, useNavigate } from "react-router-dom";
+import { useData } from "../../context";
+import { ACTION_TYPE } from "../../utils/actionType";
 
 export const NavBar = () => {
+  const { state, dispatch } = useData();
+  const navigate = useNavigate();
   return (
     <>
       <nav className="navigation">
         <div className="navigation__logo">
-         
-          <Link to="/"> <h3 className="navigation__heading">EagleStore</h3> </Link>
-         
+          <Link to="/">
+            {" "}
+            <h3 className="navigation__heading">EagleStore</h3>{" "}
+          </Link>
         </div>
         <ul className="navbar__search">
-          <input className="search__box" type="search" placeholder="Search" />
-          <span className="search__icon">
-            <i className="fas fa-search"></i>
-          </span>
+          <input
+            value={state.filter.search}
+            onChange={(e) => {
+              navigate("/product");
+              dispatch({
+                type: ACTION_TYPE.FILTER_CHANGE,
+                payload: {
+                  filterType: "search",
+                  filterValue: e.target.value,
+                },
+              });
+            }}
+            className="search__box"
+            type="search"
+            placeholder="Search with name or categories"
+          />
         </ul>
 
         <ul className="navbar__right">
-        <div>
-        <Link to="/product"
-            href="./Pages/Authentication/login.html"
-          >
-           Explore
-          </Link>
-        </div>
-      
+          <div>
+            <Link to="/product" href="./Pages/Authentication/login.html">
+              Explore
+            </Link>
+          </div>
+
           <div className="badge">
             <a href="/Pages/Cart Page/cart-page.html">
               <i className="badge__icon fas fa-cart-plus"></i>
@@ -43,5 +58,3 @@ export const NavBar = () => {
     </>
   );
 };
-
-
