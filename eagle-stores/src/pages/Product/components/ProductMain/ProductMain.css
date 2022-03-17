@@ -1,0 +1,27 @@
+.product{
+    width: 80vw;
+    margin: 0 auto;
+    background-color: var(--white);
+    padding-bottom: 2rem;
+ }
+ 
+ .product__subtext{
+     font-size: .8rem;
+     padding-left: .5rem;
+ }
+ 
+ .badge{
+     margin:0 .6rem 0 0;
+ }
+ 
+ @media screen and (max-width:1000px){
+     .product__cards{
+         grid-template-columns: 1fr 1fr;
+     }
+ }
+ 
+ @media screen and (max-width:700px) {
+     .product__cards{
+         grid-template-columns: 1fr;
+     }
+ }

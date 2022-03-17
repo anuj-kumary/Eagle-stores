@@ -1,5 +1,4 @@
-import Carousel from "../../components/Carousel/Carousel";
-import HomeCategory from "../../components/HomeCategory/HomeCategory";
+import { Carousel , HomeCategory } from "../../components";
 
 export const Home = () => {
     return(

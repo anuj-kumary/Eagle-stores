@@ -1,20 +1,14 @@
 .category__container{
     margin: 2rem auto;
 }
-.product__container{
-    width: 80vw;
-   margin: 0 auto;
-   background-color: var(--white);
-   padding-bottom: 2rem;
-}
-.product__card{
+.category__card{
     filter: blur(var(--value, 1rem)); --value:2px;
     position: relative;
     border-radius: 5px;
     margin: 0 auto;
     height: 14rem;
 }
-.product__card:hover{
+.category__card:hover{
     filter: blur(var(--value, 1rem)); --value:0;
 }
 .category__heading{
@@ -30,7 +24,7 @@
     color: black;
 }
 
-.product__card:hover h3{
+.category__card:hover h3{
     transform: translateY(0px);
     opacity: 1;
 }

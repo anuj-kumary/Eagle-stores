@@ -1,6 +1,6 @@
 import "./HomeCategory.css" 
 
-const HomeCategory = () => {
+export const HomeCategory = () => {
   return (
     <>
     <div className="category__container">
@@ -16,7 +16,7 @@ const HomeCategory = () => {
                 </div>
               </div>
 
-              <div className="product__card">
+              <div className="product__card category__card">
                 <div className="product__image">
                     <img src="https://images-eu.ssl-images-amazon.com/images/I/41R9oD3K25L._SX300_SY300_QL70_FMwebp_.jpg" alt="Phone" />
                 </div>
@@ -25,7 +25,7 @@ const HomeCategory = () => {
                 </div>
               </div>
 
-              <div className="product__card">
+              <div className="product__card category__card">
                 <div className="product__image">
                     <img src="https://vlebazaar.in/image/cache/catalog//B08CVP7LCC/OnePlus-Buds-Gray-B08CVP7LCC-550x550h.jpg" alt="Earbuds" />
                 </div>
@@ -41,5 +41,5 @@ const HomeCategory = () => {
   );
 };
 
-export default HomeCategory;
+
 
