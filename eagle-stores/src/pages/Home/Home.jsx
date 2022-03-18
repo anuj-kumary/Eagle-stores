@@ -1,10 +1,10 @@
-import { Carousel , HomeCategory } from "../../components";
+import { Carousel, HomeCategory } from "../../components";
 
 export const Home = () => {
-    return(
-        <>
-        <Carousel />
-        <HomeCategory />
-        </>
-    )
-}
+  return (
+    <>
+      <Carousel />
+      <HomeCategory />
+    </>
+  );
+};

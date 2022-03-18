@@ -1,1 +1,1 @@
-export { DataReducer , initialistate } from "./DataReducer"
+export { DataReducer, initialistate } from "./DataReducer";
