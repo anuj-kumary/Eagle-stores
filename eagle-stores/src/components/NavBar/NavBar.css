@@ -36,12 +36,13 @@ body {
     outline: none;
     border-width: 0;
     border: 1px solid;
-    padding-left: 3rem;
+    padding-left: .5rem;
 }
 
 .search__icon {
     position: absolute;
     padding: 0 .8rem;
+    right: 0;
 }
 
 .navbar__right {
