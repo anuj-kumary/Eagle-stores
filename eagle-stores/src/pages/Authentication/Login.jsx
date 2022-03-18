@@ -1,12 +1,23 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context';
 import './Auth.css';
 
 export const Login = () => {
-  const { loginHandler } = useAuth();
+  const { loginHandler, token } = useAuth();
+  const navigate = useNavigate();
+
   const [loginUser, setLoginUser] = useState({
     email: 'adarshbalak@gmail.com',
     password: 'adarshBalaki123',
+  });
+
+  useEffect(() => {
+    if (token) {
+      setTimeout(() => {
+        navigate('/');
+      });
+    }
   });
 
   return (
@@ -31,9 +42,7 @@ export const Login = () => {
           <label className='input__checkbox'></label>
           <input type='checkbox' />
           <span className='text'>Remember Me</span>
-          <a href='./forget.html' className='auth__forget'>
-            Forget your Password?
-          </a>
+          <a className='auth__forget'>Forget your Password?</a>
         </div>
 
         <div className='btn__signup text__center'>
@@ -45,9 +54,7 @@ export const Login = () => {
           </button>
         </div>
         <div className='text__center'>
-          <a className='login__link fw__400' href='./signup.html'>
-            Create new account
-          </a>
+          <a className='login__link fw__400'>Create new account</a>
         </div>
       </div>
     </div>

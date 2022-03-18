@@ -1,7 +1,8 @@
 import { createContext, useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import { loginServices } from '../../services/Services';
 
+loginServices;
 const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
@@ -12,10 +13,7 @@ const AuthProvider = ({ children }) => {
 
   const loginHandler = async (email, password) => {
     try {
-      const resp = await axios.post('/api/auth/login', {
-        email,
-        password,
-      });
+      const resp = await loginServices({ email, password });
       console.log(resp.data);
       if (resp.status === 200 || resp.status === 201) {
         localStorage.setItem(

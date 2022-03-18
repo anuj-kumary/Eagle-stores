@@ -11,8 +11,7 @@ export const NavBar = () => {
       <nav className='navigation'>
         <div className='navigation__logo'>
           <Link to='/'>
-            {' '}
-            <h3 className='navigation__heading'>EagleStore</h3>{' '}
+            <h3 className='navigation__heading'>EagleStore</h3>
           </Link>
         </div>
         <ul className='navbar__search'>
@@ -39,18 +38,18 @@ export const NavBar = () => {
             <Link to='/product'>Explore</Link>
           </div>
           <div className='badge'>
-            <Link to='/login' href='/Pages/Cart Page/cart-page.html'>
+            <Link to='/login'>
               <i className='badge__icon fas fa-user'></i>
             </Link>
           </div>
           <div className='badge'>
-            <a href='/Pages/Cart Page/cart-page.html'>
+            <a>
               <i className='badge__icon fas fa-cart-plus'></i>
               <span className='badge__number'>1</span>
             </a>
           </div>
           <div className='badge'>
-            <a href='./Pages/Wishlist/wishlist.html'>
+            <a>
               <i className='badge__icon far fa-heart'></i>
               <span className='badge__number'>4</span>
             </a>

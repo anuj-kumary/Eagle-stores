@@ -3,8 +3,10 @@ import { Routes, Route } from 'react-router-dom';
 import Mockman from 'mockman-js';
 import { Home, Login, Product } from './pages';
 import { Footer, NavBar } from './components';
+import { useAuth } from './context';
 
 function MockAPI() {
+  const { token } = useAuth();
   return (
     <div className='MockAPI'>
       <Mockman />
