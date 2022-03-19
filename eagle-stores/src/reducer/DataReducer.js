@@ -1,14 +1,15 @@
-import { ACTION_TYPE } from "../utils/actionType";
+import { ACTION_TYPE } from '../utils/actionType';
 
 export const initialistate = {
   filter: {
     categories: {},
-    sortBy: "",
-    rating: "",
-    search: "",
+    sortBy: '',
+    rating: '',
+    search: '',
     priceRange: 0,
   },
   products: [],
+  cartlist: [],
 };
 
 export const DataReducer = (state, action) => {
@@ -63,6 +64,12 @@ export const DataReducer = (state, action) => {
         {}
       );
 
+    case ACTION_TYPE.SETCART_LIST:
+      return {
+        ...state,
+        cartlist: action.payload.cartlist,
+      };
+
       const clearPriceRange = state.products.reduce((acc, curr) => {
         if (Number(curr.price) > acc) return Number(curr.price);
         return acc;
@@ -72,8 +79,8 @@ export const DataReducer = (state, action) => {
         ...state,
         filter: {
           categories: clearCategories,
-          sortBy: "",
-          rating: "",
+          sortBy: '',
+          rating: '',
           priceRange: clearPriceRange,
         },
       };
