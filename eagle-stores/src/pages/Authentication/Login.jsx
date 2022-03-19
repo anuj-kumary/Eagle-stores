@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../../context';
+import { useAuth, useData } from '../../context';
 import './Auth.css';
 
 export const Login = () => {
-  const { loginHandler, token } = useAuth();
+  const { loginHandler, token, user } = useAuth();
+  const { state, dispatch } = useData();
   const navigate = useNavigate();
 
   const [loginUser, setLoginUser] = useState({

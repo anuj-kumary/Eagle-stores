@@ -1,10 +1,11 @@
 import './NavBar.css';
 import { Link, useNavigate } from 'react-router-dom';
-import { useData } from '../../context';
+import { useAuth, useData } from '../../context';
 import { ACTION_TYPE } from '../../utils/actionType';
 
 export const NavBar = () => {
   const { state, dispatch } = useData();
+  const { token } = useAuth();
   const navigate = useNavigate();
   return (
     <>
@@ -43,10 +44,12 @@ export const NavBar = () => {
             </Link>
           </div>
           <div className='badge'>
-            <a>
+            <Link to='/cart'>
               <i className='badge__icon fas fa-cart-plus'></i>
-              <span className='badge__number'>1</span>
-            </a>
+              {state.cartlist.length > 0 && (
+                <span className='badge__number'>{state.cartlist.length}</span>
+              )}
+            </Link>
           </div>
           <div className='badge'>
             <a>
