@@ -1,6 +1,5 @@
 .cart__container {
     width: 100vw;
-    height: 90vh;
     padding: 2rem 0;
     display: flex;
     flex-wrap: wrap;
@@ -91,7 +90,6 @@
 
 .cart__vertical {
     width: 25rem;
-    height: 15rem;
     display: flex;
     flex-direction: column;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
@@ -112,6 +110,10 @@
 
 .cart__price--value {
     float: right;
+}
+
+.space {
+    padding-left: 2rem;
 }
 
 .cart__vertical>.cart__text {
