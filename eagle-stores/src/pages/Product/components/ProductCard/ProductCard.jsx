@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth, useData } from '../../../../context';
-import { PostCartItems } from '../../../../services/Services';
+import { PostCartItems, PostWishItems } from '../../../../services/Services';
 import { ACTION_TYPE } from '../../../../utils/actionType';
 import {
   categoryFilter,
@@ -27,6 +27,31 @@ export const ProductCard = ({ state }) => {
     <div className='product__cards'>
       {newData.map((item) => {
         const { _id, img, name, price } = item;
+
+        const wishListHandler = async () => {
+          {
+            try {
+              if (!token) {
+                navigate('/login');
+                return;
+              }
+
+              const response = await PostWishItems({
+                product: item,
+                encodedToken: token,
+              });
+              if (response === 200 || response === 201) {
+                dispatch({
+                  type: ACTION_TYPE.WISHLIST,
+                  payload: { wishlist: response.data.wishlist },
+                });
+              }
+              console.log(response);
+            } catch (err) {
+              console.log(err);
+            }
+          }
+        };
 
         const cartHandler = async () => {
           try {
@@ -55,9 +80,12 @@ export const ProductCard = ({ state }) => {
             <div className='product__card'>
               <div className='product__image'>
                 <img src={img} alt={name} />
-                <span className='product__favourite'>
+                <button
+                  onClick={wishListHandler}
+                  className='product__favourite'
+                >
                   <i className='fas fa-heart'></i>
-                </span>
+                </button>
               </div>
               <h3 className='product__heading'>{name}</h3>
               <div className='product__price'>&#8377; {price}</div>

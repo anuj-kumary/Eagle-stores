@@ -13,9 +13,27 @@ export const GetCartItems = async ({ encodedToken }) =>
     },
   });
 
+export const GetWishItems = async ({ encodedToken }) =>
+  axios.get('/api/user/wishlist', {
+    headers: {
+      authorization: encodedToken,
+    },
+  });
+
 export const PostCartItems = async ({ encodedToken, product }) =>
   axios.post(
     '/api/user/cart',
+    { product },
+    {
+      headers: {
+        authorization: encodedToken,
+      },
+    }
+  );
+
+export const PostWishItems = async ({ encodedToken, product }) =>
+  axios.post(
+    '/api/user/wishlist',
     { product },
     {
       headers: {

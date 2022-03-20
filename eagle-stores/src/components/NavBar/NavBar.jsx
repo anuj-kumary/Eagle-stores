@@ -52,10 +52,12 @@ export const NavBar = () => {
             </Link>
           </div>
           <div className='badge'>
-            <a>
+            <Link to='/wishlist'>
               <i className='badge__icon far fa-heart'></i>
-              <span className='badge__number'>4</span>
-            </a>
+              {state.wishlist.length > 0 && (
+                <span className='badge__number'>{state.wishlist.length}</span>
+              )}
+            </Link>
           </div>
         </ul>
       </nav>

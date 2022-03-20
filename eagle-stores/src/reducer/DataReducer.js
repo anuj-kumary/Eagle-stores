@@ -10,6 +10,7 @@ export const initialistate = {
   },
   products: [],
   cartlist: [],
+  wishlist: [],
 };
 
 export const DataReducer = (state, action) => {
@@ -68,6 +69,14 @@ export const DataReducer = (state, action) => {
       return {
         ...state,
         cartlist: action.payload.cartlist,
+      };
+
+    case ACTION_TYPE.WISHLIST:
+      console.log(state + 'reducer');
+      console.log(action.payload.wishlist);
+      return {
+        ...state,
+        wishlist: action.payload.wishlist,
       };
 
       const clearPriceRange = state.products.reduce((acc, curr) => {

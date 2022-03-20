@@ -1,5 +1,5 @@
-import { Response } from "miragejs";
-import { formatDate, requiresAuth } from "../utils/authUtils";
+import { Response } from 'miragejs';
+import { formatDate, requiresAuth } from '../utils/authUtils';
 
 /**
  * All the routes related to Wishlist are present here.
@@ -19,7 +19,7 @@ export const getWishlistItemsHandler = function (schema, request) {
       404,
       {},
       {
-        errors: ["The email you entered is not Registered. Not Found error"],
+        errors: ['The email you entered is not Registered. Not Found error'],
       }
     );
   }
@@ -41,7 +41,7 @@ export const addItemToWishlistHandler = function (schema, request) {
         404,
         {},
         {
-          errors: ["The email you entered is not Registered. Not Found error"],
+          errors: ['The email you entered is not Registered. Not Found error'],
         }
       );
     }
@@ -79,7 +79,7 @@ export const removeItemFromWishlistHandler = function (schema, request) {
         404,
         {},
         {
-          errors: ["The email you entered is not Registered. Not Found error"],
+          errors: ['The email you entered is not Registered. Not Found error'],
         }
       );
     }
