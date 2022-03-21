@@ -65,20 +65,6 @@ export const DataReducer = (state, action) => {
         {}
       );
 
-    case ACTION_TYPE.SETCART_LIST:
-      return {
-        ...state,
-        cartlist: action.payload.cartlist,
-      };
-
-    case ACTION_TYPE.WISHLIST:
-      console.log(state + 'reducer');
-      console.log(action.payload.wishlist);
-      return {
-        ...state,
-        wishlist: action.payload.wishlist,
-      };
-
       const clearPriceRange = state.products.reduce((acc, curr) => {
         if (Number(curr.price) > acc) return Number(curr.price);
         return acc;
@@ -92,6 +78,18 @@ export const DataReducer = (state, action) => {
           rating: '',
           priceRange: clearPriceRange,
         },
+      };
+
+    case ACTION_TYPE.SETCART_LIST:
+      return {
+        ...state,
+        cartlist: action.payload.cartlist,
+      };
+
+    case ACTION_TYPE.WISHLIST:
+      return {
+        ...state,
+        wishlist: action.payload.wishlist,
       };
 
     default:

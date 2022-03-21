@@ -7,21 +7,21 @@ export const loginServices = ({ email, password }) =>
   });
 
 export const GetCartItems = async ({ encodedToken }) =>
-  axios.get('/api/user/cart', {
+  await axios.get('/api/user/cart', {
     headers: {
       authorization: encodedToken,
     },
   });
 
 export const GetWishItems = async ({ encodedToken }) =>
-  axios.get('/api/user/wishlist', {
+  await axios.get('/api/user/wishlist', {
     headers: {
       authorization: encodedToken,
     },
   });
 
 export const PostCartItems = async ({ encodedToken, product }) =>
-  axios.post(
+  await axios.post(
     '/api/user/cart',
     { product },
     {
@@ -32,7 +32,7 @@ export const PostCartItems = async ({ encodedToken, product }) =>
   );
 
 export const PostWishItems = async ({ encodedToken, product }) =>
-  axios.post(
+  await axios.post(
     '/api/user/wishlist',
     { product },
     {

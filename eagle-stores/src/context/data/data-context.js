@@ -31,16 +31,16 @@ const DataProvider = ({ children }) => {
         });
       }
 
-      const cartResp = await GetCartItems({ encodedToken: token });
-      if (cartResp === 200 || cartResp === 201) {
+      const cartResp = GetCartItems({ encodedToken: token });
+      if (cartResp.status === 200 || cartResp.status === 201) {
         dispatch({
           type: ACTION_TYPE.SETCART_LIST,
           payload: { cartlist: cartResp.data.cart },
         });
       }
 
-      const wishResp = await GetWishItems({ encodedToken: token });
-      if (wishResp === 200 || wishResp === 201) {
+      const wishResp = GetWishItems({ encodedToken: token });
+      if (wishResp.status === 200 || wishResp.status === 201) {
         dispatch({
           type: ACTION_TYPE.WISHLIST,
           payload: { wishlist: wishResp.data.wishlist },

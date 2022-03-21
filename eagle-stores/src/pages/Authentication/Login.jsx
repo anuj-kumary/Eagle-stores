@@ -14,12 +14,14 @@ export const Login = () => {
   });
 
   useEffect(() => {
+    let id;
     if (token) {
-      setTimeout(() => {
+      id = setTimeout(() => {
         navigate('/');
-      });
+      }, 500);
     }
-  });
+    return () => clearTimeout(id);
+  }, [token]);
 
   return (
     <div className='container'>
