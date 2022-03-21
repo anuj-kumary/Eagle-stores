@@ -18,7 +18,6 @@ const AuthProvider = ({ children }) => {
   const loginHandler = async (email, password) => {
     try {
       const resp = await loginServices({ email, password });
-      console.log(resp.data);
       if (resp.status === 200 || resp.status === 201) {
         localStorage.setItem(
           'login',

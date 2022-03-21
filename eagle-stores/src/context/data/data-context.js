@@ -2,7 +2,7 @@ import axios from 'axios';
 import { createContext, useContext, useEffect, useReducer } from 'react';
 import { ACTION_TYPE } from '../../utils/actionType';
 import { initialistate, DataReducer } from '../../reducer';
-import { GetCartItems } from '../../services/Services';
+import { GetCartItems, GetWishItems } from '../../services/Services';
 import { useAuth } from '../auth/auth-context';
 
 const DataContext = createContext();
@@ -31,11 +31,19 @@ const DataProvider = ({ children }) => {
         });
       }
 
-      const cartResp = await GetCartItems({ encodedToken: token });
-      if (cartResp === 200 || cartResp === 201) {
+      const cartResp = GetCartItems({ encodedToken: token });
+      if (cartResp.status === 200 || cartResp.status === 201) {
         dispatch({
           type: ACTION_TYPE.SETCART_LIST,
           payload: { cartlist: cartResp.data.cart },
+        });
+      }
+
+      const wishResp = GetWishItems({ encodedToken: token });
+      if (wishResp.status === 200 || wishResp.status === 201) {
+        dispatch({
+          type: ACTION_TYPE.WISHLIST,
+          payload: { wishlist: wishResp.data.wishlist },
         });
       }
     })();

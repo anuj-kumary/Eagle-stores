@@ -1,7 +1,7 @@
 import './App.css';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import Mockman from 'mockman-js';
-import { Home, Login, Product, Cart } from './pages';
+import { Home, Login, Product, Cart, WishList } from './pages';
 import { Footer, NavBar } from './components';
 import { useAuth } from './context';
 
@@ -26,6 +26,10 @@ function App() {
         <Route
           path='/cart'
           element={token ? <Cart /> : <Navigate to='/login' />}
+        />
+        <Route
+          path='/wishlist'
+          element={token ? <WishList /> : <Navigate to='/login' />}
         />
         <Route path='/mockman' element={<MockAPI />} />
         <Route path='/login' element={<Login />} />
