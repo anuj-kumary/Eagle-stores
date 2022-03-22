@@ -1,10 +1,16 @@
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth, useData } from '../../context';
+import { ACTION_TYPE } from '../../utils/actionType';
+import {
+  GetCartItems,
+  GetWishItems,
+  loginServices,
+} from '../../services/Services';
 import './Auth.css';
 
 export const Login = () => {
-  const { loginHandler, token, user } = useAuth();
+  const { token, user, setUser, setToken } = useAuth();
   const { state, dispatch } = useData();
   const navigate = useNavigate();
 
@@ -22,6 +28,55 @@ export const Login = () => {
     }
     return () => clearTimeout(id);
   }, [token]);
+
+  const loginHandler = async (e, setLoginUser, loginUser) => {
+    e.preventDefault();
+    try {
+      let resp;
+      if (e.target.innerText === 'Login as Guest') {
+        setLoginUser({
+          email: 'adarshbalak@gmail.com',
+          password: 'adarshBalaki123',
+        });
+        resp = await loginServices('adarshbalak@gmail.com', 'adarshBalaki123');
+      } else resp = await loginServices(loginUser.email, loginUser.password);
+      if (resp.status === 200 || resp.status === 201) {
+        localStorage.setItem(
+          'login',
+          JSON.stringify({
+            token: resp.data.encodedToken,
+            user: resp.data.foundUser,
+          })
+        );
+
+        const cartResp = await GetCartItems({
+          encodedToken: resp.data.encodedToken,
+        });
+        if (cartResp.status === 200 || cartResp.status === 201) {
+          dispatch({
+            type: ACTION_TYPE.SETCART_LIST,
+            payload: { cartlist: cartResp.data.cart },
+          });
+        }
+
+        const wishResp = await GetWishItems({
+          encodedToken: resp.data.encodedToken,
+        });
+        if (wishResp.status === 200 || wishResp.status === 201) {
+          dispatch({
+            type: ACTION_TYPE.WISHLIST,
+            payload: { wishlist: wishResp.data.wishlist },
+          });
+        }
+
+        setUser(resp.data.foundUser);
+        setToken(resp.data.encodedToken);
+        navigate('/product');
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <div className='container'>

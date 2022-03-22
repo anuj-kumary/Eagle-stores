@@ -5,8 +5,24 @@ import { ACTION_TYPE } from '../../utils/actionType';
 
 export const NavBar = () => {
   const { state, dispatch } = useData();
-  const { token, logoutHandler } = useAuth();
+  const { token, setToken, setUser } = useAuth();
   const navigate = useNavigate();
+
+  const logoutHandler = (e) => {
+    e.preventDefault();
+    localStorage.removeItem('login');
+    setToken(null);
+    setUser(null);
+    dispatch({
+      type: ACTION_TYPE.SETCART_LIST,
+      payload: { cartlist: [] },
+    });
+    dispatch({
+      type: ACTION_TYPE.WISHLIST,
+      payload: { wishlist: [] },
+    });
+  };
+
   return (
     <>
       <nav className='navigation'>
@@ -41,7 +57,7 @@ export const NavBar = () => {
           <div className='badge'>
             <Link to='/cart'>
               <i className='badge__icon fas fa-cart-plus'></i>
-              {state.cartlist.length > 0 && (
+              {state.cartlist.length > 0 && token && (
                 <span className='badge__number'>{state.cartlist.length}</span>
               )}
             </Link>
@@ -49,14 +65,14 @@ export const NavBar = () => {
           <div className='badge'>
             <Link to='/wishlist'>
               <i className='badge__icon far fa-heart'></i>
-              {state.wishlist.length > 0 && (
+              {state.wishlist.length > 0 && token && (
                 <span className='badge__number'>{state.wishlist.length}</span>
               )}
             </Link>
           </div>
           {token ? (
             <div className='badge'>
-              <Link onClick={logoutHandler} to='/logout'>
+              <Link onClick={(e) => logoutHandler(e)} to='/logout'>
                 <i
                   title='Logout'
                   className='badge__icon fas fa-sign-out-alt'
