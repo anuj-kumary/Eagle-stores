@@ -32,9 +32,9 @@ export const WishListCard = ({ item }) => {
       <div className='product__card'>
         <div className='product__image'>
           <img src={img} alt={name} />
-          <span className='product__favourite'>
+          <button onClick={wishListHandler} className='product__favourite'>
             <i className='fas fa-heart'></i>
-          </span>
+          </button>
         </div>
         <h3 className='wishlist__heading'>{name}</h3>
         <div className='product__price'>&#8377; {price}</div>

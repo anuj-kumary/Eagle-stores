@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth, useData } from '../../../../../context';
-import { PostCartItems, PostWishItems } from '../../../../../services/Services';
+import {
+  PostCartItems,
+  PostWishItems,
+  RemoveWishItems,
+} from '../../../../../services/Services';
 import { ACTION_TYPE } from '../../../../../utils/actionType';
 
 export default function Product({ item }) {
@@ -43,10 +47,17 @@ export default function Product({ item }) {
         return;
       }
 
-      const response = await PostWishItems({
-        product: item,
-        encodedToken: token,
-      });
+      let response = null;
+      if (wish) {
+        response = await RemoveWishItems({
+          productId: _id,
+          encodedToken: token,
+        });
+      } else
+        response = await PostWishItems({
+          product: item,
+          encodedToken: token,
+        });
       if (response.status === 200 || response.status === 201) {
         dispatch({
           type: ACTION_TYPE.WISHLIST,
