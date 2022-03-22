@@ -1,17 +1,25 @@
 import axios from 'axios';
 
-export const loginServices = ({ email, password }) =>
-  axios.post('/api/auth/login', {
+export const loginServices = async (email, password) =>
+  await axios.post('/api/auth/login', {
     email,
     password,
   });
 
-export const GetCartItems = async ({ encodedToken }) =>
-  await axios.get('/api/user/cart', {
+export const SignupServices = async ({ email, password, name }) =>
+  await axios.post('/api/auth/signup', {
+    email,
+    password,
+    name,
+  });
+
+export const GetCartItems = async ({ encodedToken }) => {
+  return await axios.get('/api/user/cart', {
     headers: {
       authorization: encodedToken,
     },
   });
+};
 
 export const GetWishItems = async ({ encodedToken }) =>
   await axios.get('/api/user/wishlist', {
