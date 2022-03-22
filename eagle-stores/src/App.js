@@ -6,6 +6,9 @@ import { useAuth, useData } from './context';
 import Loader from './components/Loader/Loader';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useAuth } from './context';
+import Signup from './pages/Authentication/Signup';
+import Logout from './pages/Authentication/Logout';
 
 function App() {
   const { token } = useAuth();
@@ -35,7 +38,9 @@ function App() {
           path='/wishlist'
           element={token ? <WishList /> : <Navigate to='/login' />}
         />
+        <Route path='/logout' element={<Logout />} />
         <Route path='/login' element={<Login />} />
+        <Route path='/signup' element={<Signup />} />
       </Routes>
       <Footer />
     </>

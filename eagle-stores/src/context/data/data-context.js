@@ -1,10 +1,10 @@
 import axios from 'axios';
 import { createContext, useContext, useEffect, useReducer } from 'react';
 import { ACTION_TYPE } from '../../utils/actionType';
-import { initialistate, DataReducer } from '../../reducer';
 import { GetCartItems, GetWishItems } from '../../services/Services';
 import { useAuth } from '../auth/auth-context';
 import { useState } from 'react';
+
 
 const DataContext = createContext();
 
