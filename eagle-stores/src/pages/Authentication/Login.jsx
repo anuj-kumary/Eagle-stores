@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAuth, useData } from '../../context';
 import './Auth.css';
 
@@ -9,8 +9,8 @@ export const Login = () => {
   const navigate = useNavigate();
 
   const [loginUser, setLoginUser] = useState({
-    email: 'adarshbalak@gmail.com',
-    password: 'adarshBalaki123',
+    email: '',
+    password: '',
   });
 
   useEffect(() => {
@@ -31,7 +31,17 @@ export const Login = () => {
         </div>
         <div className='input'>
           <label>Email</label>
-          <input className='input-txt' type='email' value={loginUser.email} />
+          <input
+            className='input-txt'
+            type='email'
+            value={loginUser.email}
+            onChange={(e) => {
+              setLoginUser({
+                ...loginUser,
+                email: e.target.value,
+              });
+            }}
+          />
         </div>
         <div className='input'>
           <label>Password</label>
@@ -39,6 +49,12 @@ export const Login = () => {
             className='input-txt'
             type='password'
             value={loginUser.password}
+            onChange={(e) => {
+              setLoginUser({
+                ...loginUser,
+                password: e.target.value,
+              });
+            }}
           />
         </div>
         <div className='input'>
@@ -51,13 +67,21 @@ export const Login = () => {
         <div className='btn__signup text__center'>
           <button
             className='btn btn__primary'
-            onClick={() => loginHandler(loginUser.email, loginUser.password)}
+            onClick={(e) => loginHandler(e, setLoginUser, loginUser)}
           >
             Login
           </button>
+          <button
+            className='btn'
+            onClick={(e) => loginHandler(e, setLoginUser, loginUser)}
+          >
+            Login as Guest
+          </button>
         </div>
         <div className='text__center'>
-          <a className='login__link fw__400'>Create new account</a>
+          <Link to='/signup' className='login__link fw__400'>
+            Create new account
+          </Link>
         </div>
       </div>
     </div>

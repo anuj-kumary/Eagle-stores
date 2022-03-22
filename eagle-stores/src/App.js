@@ -4,6 +4,8 @@ import Mockman from 'mockman-js';
 import { Home, Login, Product, Cart, WishList } from './pages';
 import { Footer, NavBar } from './components';
 import { useAuth } from './context';
+import Signup from './pages/Authentication/Signup';
+import Logout from './pages/Authentication/Logout';
 
 function MockAPI() {
   const { token } = useAuth();
@@ -31,8 +33,10 @@ function App() {
           path='/wishlist'
           element={token ? <WishList /> : <Navigate to='/login' />}
         />
+        <Route path='/logout' element={<Logout />} />
         <Route path='/mockman' element={<MockAPI />} />
         <Route path='/login' element={<Login />} />
+        <Route path='/signup' element={<Signup />} />
       </Routes>
       <Footer />
     </>

@@ -18,8 +18,8 @@ body {
 }
 
 .auth__form {
+    padding-bottom: 1rem;
     width: 25rem;
-    height: 25rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -55,4 +55,56 @@ input[type=password] {
 
 .text {
     vertical-align: text-bottom;
+}
+
+.btn__signup>button {
+    width: 100%;
+}
+
+.logout__container {
+    width: 90vw;
+    margin: 0 auto;
+}
+
+.logout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero__heading {
+    color: var(--theme-color);
+    margin-bottom: 1rem;
+}
+
+.hero__sub__heading {
+    padding: .4rem 0;
+    font-weight: 550;
+}
+
+.logout__buttons {
+    display: flex;
+}
+
+.btn__default {
+    background-color: var(--theme-color);
+}
+
+.logout__buttons>.btn {
+    margin: 1rem .5rem 0 0;
+    padding: .8rem 3.5rem;
+}
+
+.login__content {
+    width: 30rem;
+}
+
+.logout__images {
+    width: 40rem;
+}
+
+.subtitle {
+    color: var(--border-color);
+    font-size: 1rem;
+    padding: 0 1.5rem 1rem 1.5rem;
 }
