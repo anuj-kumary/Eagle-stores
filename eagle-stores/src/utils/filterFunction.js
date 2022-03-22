@@ -1,3 +1,5 @@
+import { toast } from 'react-toastify';
+
 const unionCategory = (...arr) => {
   const uni = arr.reduce((acc, curr) => {
     return acc.concat(
@@ -25,14 +27,14 @@ const categoryFilter = (productData, category) => {
 };
 
 const ratingFilter = (data, rating) => {
-  if (rating === "") return data;
+  if (rating === '') return data;
   const rate = Number(rating);
   return data.filter((item) => Number(item.rating) >= rate);
 };
 
 const sortByPrice = (data, sortBy) => {
-  if (sortBy === "") return data;
-  if (sortBy === "HighToLow") {
+  if (sortBy === '') return data;
+  if (sortBy === 'HighToLow') {
     return [...data].sort((a, b) => b.price - a.price);
   }
   return [...data].sort((a, b) => a.price - b.price);
@@ -43,17 +45,59 @@ const priceRangeFilter = (data, maxValue) => {
 };
 
 const searchFilter = (data, searchText) => {
-  if (searchText === "") return data;
+  if (searchText === '') return data;
   return data.filter(
     (item) =>
       item.name.toLowerCase().startsWith(searchText.toLowerCase()) ||
       item.category.toLowerCase().startsWith(searchText.toLowerCase())
   );
 };
+
+const ToastHandler = (type, message) => {
+  if (type === 'error') {
+    toast.error(message, {
+      position: 'top-right',
+      autoClose: 1000,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  } else if (type === 'warn') {
+    toast.warn(message, {
+      position: 'top-right',
+      autoClose: 1000,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  } else if (type === 'success') {
+    toast.success(message, {
+      position: 'top-right',
+      autoClose: 1000,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  } else if (type === 'info') {
+    toast.info(message, {
+      position: 'top-right',
+      autoClose: 1000,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  }
+};
+
 export {
   categoryFilter,
   ratingFilter,
   priceRangeFilter,
   sortByPrice,
   searchFilter,
+  ToastHandler,
 };

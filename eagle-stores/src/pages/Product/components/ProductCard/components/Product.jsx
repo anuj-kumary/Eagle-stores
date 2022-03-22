@@ -7,28 +7,23 @@ import { ACTION_TYPE } from '../../../../../utils/actionType';
 export default function Product({ item }) {
   const [cart, setCart] = useState(false);
   const [wish, setWish] = useState(false);
-  const { state, dispatch } = useData();
+  const { state, dispatch, setLoader } = useData();
   const { token } = useAuth();
   const navigate = useNavigate();
 
   const { _id, img, name, price } = item;
 
-  useEffect(
-    () => {
-      const cartfindItem = state.cartlist.find((ele) => ele._id === _id);
+  useEffect(() => {
+    const cartfindItem = state.cartlist.find((ele) => ele._id === _id);
+    if (cartfindItem) {
+      setCart(true);
+    } else {
+      setCart(false);
+    }
+  }, [state.cartlist]);
 
-      if (cartfindItem) {
-        setCart(true);
-      } else {
-        setCart(false);
-      }
-    },
-    [state.cartlist],
-    [state.wishlist]
-  );
   useEffect(() => {
     const wishfindItem = state.wishlist.find((ele) => ele._id === _id);
-
     if (wishfindItem) {
       setWish(true);
     } else {

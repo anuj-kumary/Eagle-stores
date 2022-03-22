@@ -1,24 +1,28 @@
 import './App.css';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import Mockman from 'mockman-js';
 import { Home, Login, Product, Cart, WishList } from './pages';
 import { Footer, NavBar } from './components';
-import { useAuth } from './context';
-
-function MockAPI() {
-  const { token } = useAuth();
-
-  return (
-    <div className='MockAPI'>
-      <Mockman />
-    </div>
-  );
-}
+import { useAuth, useData } from './context';
+import Loader from './components/Loader/Loader';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const { token } = useAuth();
+  const { loader } = useData();
   return (
     <>
+      {loader && <Loader />}
+      <ToastContainer
+        position='bottom-right'
+        autoClose={false}
+        newestOnTop={false}
+        closeOnClick
+        theme='colored'
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+      />
       <NavBar />
       <Routes>
         <Route path='/' element={<Home />} />
@@ -31,7 +35,6 @@ function App() {
           path='/wishlist'
           element={token ? <WishList /> : <Navigate to='/login' />}
         />
-        <Route path='/mockman' element={<MockAPI />} />
         <Route path='/login' element={<Login />} />
       </Routes>
       <Footer />

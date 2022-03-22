@@ -4,17 +4,20 @@ import { ACTION_TYPE } from '../../utils/actionType';
 import { initialistate, DataReducer } from '../../reducer';
 import { GetCartItems, GetWishItems } from '../../services/Services';
 import { useAuth } from '../auth/auth-context';
+import { useState } from 'react';
 
 const DataContext = createContext();
 
 const DataProvider = ({ children }) => {
   const { token } = useAuth();
+  const [loader, setLoader] = useState(false);
   const [state, dispatch] = useReducer(DataReducer, initialistate);
 
   useEffect(() => {
+    let id;
+    setLoader(true);
     (async () => {
       const productResp = await axios.get('/api/products');
-
       if (productResp.status === 200 || productResp.status === 201) {
         dispatch({
           type: ACTION_TYPE.INITIALIZE_PRODUCTS,
@@ -46,11 +49,12 @@ const DataProvider = ({ children }) => {
           payload: { wishlist: wishResp.data.wishlist },
         });
       }
+      setLoader(false);
     })();
   }, []);
 
   return (
-    <DataContext.Provider value={{ state, dispatch }}>
+    <DataContext.Provider value={{ state, dispatch, loader, setLoader }}>
       {children}
     </DataContext.Provider>
   );
