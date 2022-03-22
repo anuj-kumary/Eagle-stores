@@ -17,19 +17,16 @@ export default function Product({ item }) {
 
   const { _id, img, name, price } = item;
 
-  useEffect(
-    () => {
-      const cartfindItem = state.cartlist.find((ele) => ele._id === _id);
+  useEffect(() => {
+    const cartfindItem = state.cartlist.find((ele) => ele._id === _id);
 
-      if (cartfindItem) {
-        setCart(true);
-      } else {
-        setCart(false);
-      }
-    },
-    [state.cartlist],
-    [state.wishlist]
-  );
+    if (cartfindItem) {
+      setCart(true);
+    } else {
+      setCart(false);
+    }
+  }, [state.cartlist]);
+
   useEffect(() => {
     const wishfindItem = state.wishlist.find((ele) => ele._id === _id);
 

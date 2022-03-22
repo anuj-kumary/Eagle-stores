@@ -1,6 +1,7 @@
 import { useAuth, useData } from '../../../context';
 import { PostCartItems } from '../../../services/Services';
 import { ACTION_TYPE } from '../../../utils/actionType';
+import Product from '../../Product/components/ProductCard/components/Product';
 
 export const WishListCard = ({ item }) => {
   const { img, name, price, _id, id } = item;
@@ -28,22 +29,23 @@ export const WishListCard = ({ item }) => {
     }
   };
   return (
-    <div key={_id}>
-      <div className='product__card'>
-        <div className='product__image'>
-          <img src={img} alt={name} />
-          <button onClick={wishListHandler} className='product__favourite'>
-            <i className='fas fa-heart'></i>
-          </button>
-        </div>
-        <h3 className='wishlist__heading'>{name}</h3>
-        <div className='product__price'>&#8377; {price}</div>
-        <div className='product__button'>
-          <button onClick={cartHandler} className='btn btn__primary'>
-            Move to Cart
-          </button>
-        </div>
-      </div>
-    </div>
+    // <div key={_id}>
+    //   <div className='product__card'>
+    //     <div className='product__image'>
+    //       <img src={img} alt={name} />
+    //       <button className='product__favourite'>
+    //         <i className='fas fa-heart'></i>
+    //       </button>
+    //     </div>
+    //     <h3 className='wishlist__heading'>{name}</h3>
+    //     <div className='product__price'>&#8377; {price}</div>
+    //     <div className='product__button'>
+    //       <button onClick={cartHandler} className='btn btn__primary'>
+    //         Move to Cart
+    //       </button>
+    //     </div>
+    //   </div>
+    // </div>
+    <Product />
   );
 };

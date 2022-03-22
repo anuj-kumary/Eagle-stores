@@ -1,5 +1,6 @@
 import { useData } from '../../context';
-import { WishListCard } from './components/WishListCard';
+import Product from '../Product/components/ProductCard/components/Product';
+// import { WishListCard } from './components/WishListCard';
 import './components/WishListCard.css';
 
 export const WishList = () => {
@@ -15,7 +16,7 @@ export const WishList = () => {
         <div className='wishlist'>
           {state.wishlist.length > 0 &&
             state.wishlist.map((item) => {
-              return <WishListCard item={item} key={item.id} />;
+              return <Product item={item} key={item.id} />;
             })}
         </div>
       </main>
