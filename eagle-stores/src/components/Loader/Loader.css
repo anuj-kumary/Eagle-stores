@@ -1,4 +1,4 @@
-.container {
+.loader__container {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -8,6 +8,9 @@
     height: 100vh;
     z-index: 1;
     opacity: .8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .loader {

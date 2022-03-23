@@ -6,7 +6,6 @@ import { useAuth, useData } from './context';
 import Loader from './components/Loader/Loader';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useAuth } from './context';
 import Signup from './pages/Authentication/Signup';
 import Logout from './pages/Authentication/Logout';
 

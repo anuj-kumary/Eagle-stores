@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth, useData } from '../../../../../context';
 import { PostCartItems, PostWishItems } from '../../../../../services/Services';
 import { ACTION_TYPE } from '../../../../../utils/actionType';
+import { ToastHandler } from '../../../../../utils/filterFunction';
 
 export default function Product({ item }) {
   const [cart, setCart] = useState(false);
@@ -47,8 +48,8 @@ export default function Product({ item }) {
           type: ACTION_TYPE.WISHLIST,
           payload: { wishlist: response.data.wishlist },
         });
+        ToastHandler('success', 'Product Added To Wishlist');
       }
-      console.log(response);
     } catch (err) {
       console.log(err);
     }
@@ -75,6 +76,7 @@ export default function Product({ item }) {
           type: ACTION_TYPE.SETCART_LIST,
           payload: { cartlist: response.data.cart },
         });
+        ToastHandler('success', 'Product Added To Cart');
       }
     } catch (err) {
       console.log(err);
