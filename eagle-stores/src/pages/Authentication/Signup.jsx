@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/auth/auth-context';
 
-export default function Signup() {
+export function Signup() {
   const [signupForm, setSignForm] = useState({
     name: '',
     password: '',

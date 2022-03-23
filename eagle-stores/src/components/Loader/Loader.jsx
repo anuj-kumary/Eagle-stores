@@ -1,13 +1,11 @@
 import '../Loader/Loader.css';
 
-function Loader() {
+export function Loader() {
   return (
     <>
       <div className='loader__container'>
-        <div class='loader'></div>
+        <div className='loader'></div>
       </div>
     </>
   );
 }
-
-export default Loader;

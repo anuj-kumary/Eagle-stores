@@ -48,8 +48,8 @@ const searchFilter = (data, searchText) => {
   if (searchText === '') return data;
   return data.filter(
     (item) =>
-      item.name.toLowerCase().startsWith(searchText.toLowerCase()) ||
-      item.category.toLowerCase().startsWith(searchText.toLowerCase())
+      item.name?.toLowerCase().startsWith(searchText?.toLowerCase()) ||
+      item.category?.toLowerCase().startsWith(searchText?.toLowerCase())
   );
 };
 
