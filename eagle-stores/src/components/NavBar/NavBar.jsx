@@ -2,6 +2,7 @@ import './NavBar.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth, useData } from '../../context';
 import { ACTION_TYPE } from '../../utils/actionType';
+import { ToastHandler } from '../../utils/filterFunction';
 
 export const NavBar = () => {
   const { state, dispatch } = useData();
@@ -21,6 +22,8 @@ export const NavBar = () => {
       type: ACTION_TYPE.WISHLIST,
       payload: { wishlist: [] },
     });
+
+    ToastHandler('info', 'Successful logged Out');
   };
 
   return (

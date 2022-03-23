@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth, useData } from '../../context';
 import { ACTION_TYPE } from '../../utils/actionType';
+import { ToastHandler } from '../../utils/filterFunction';
 import {
   GetCartItems,
   GetWishItems,
@@ -48,6 +49,7 @@ export const Login = () => {
             user: resp.data.foundUser,
           })
         );
+        ToastHandler('success', 'Successfully logged in');
 
         const cartResp = await GetCartItems({
           encodedToken: resp.data.encodedToken,

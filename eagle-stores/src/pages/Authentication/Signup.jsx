@@ -29,6 +29,7 @@ export default function Signup() {
       (async () => {
         signupUser(email, password, name);
       })();
+      ToastHandler('success', 'Welcome to Eagle Store');
     }
   };
 

@@ -4,7 +4,7 @@ import { ACTION_TYPE } from '../../utils/actionType';
 import { GetCartItems, GetWishItems } from '../../services/Services';
 import { useAuth } from '../auth/auth-context';
 import { useState } from 'react';
-
+import { DataReducer, initialistate } from '../../reducer';
 
 const DataContext = createContext();
 
