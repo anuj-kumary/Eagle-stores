@@ -1,6 +1,7 @@
 import { useAuth, useData } from '../../../context';
 import { DeleteCart, IncDecCart } from '../../../services/Services';
 import { ACTION_TYPE } from '../../../utils/actionType';
+import { ToastHandler } from '../../../utils/filterFunction';
 
 export const CartCard = ({ item }) => {
   const { img, name, price, qty, _id, id } = item;
@@ -16,6 +17,7 @@ export const CartCard = ({ item }) => {
           type: ACTION_TYPE.SETCART_LIST,
           payload: { cartlist: res.data.cart },
         });
+        ToastHandler('warn', 'Cart deleted successfully');
       }
     } catch (err) {
       console.log(err);
