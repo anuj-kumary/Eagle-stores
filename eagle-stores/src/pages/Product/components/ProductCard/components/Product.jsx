@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth, useData } from '../../../../../context';
-import { PostCartItems, PostWishItems } from '../../../../../services/Services';
+import {
+  PostCartItems,
+  PostWishItems,
+  DeleteWishItems,
+} from '../../../../../services/Services';
 import { ACTION_TYPE } from '../../../../../utils/actionType';
 import { ToastHandler } from '../../../../../utils/filterFunction';
 
@@ -39,17 +43,26 @@ export default function Product({ item }) {
         return;
       }
 
-      const response = await PostWishItems({
-        product: item,
-        encodedToken: token,
-      });
+      let response = null;
+      if (wish) {
+        response = await DeleteWishItems({
+          productId: _id,
+          encodedToken: token,
+        });
+      } else
+        response = await PostWishItems({
+          product: item,
+          encodedToken: token,
+        });
       if (response.status === 200 || response.status === 201) {
         dispatch({
           type: ACTION_TYPE.WISHLIST,
           payload: { wishlist: response.data.wishlist },
         });
-        ToastHandler('success', 'Product Added To Wishlist');
       }
+      if (wish)
+        ToastHandler('warn', 'Successfully deleted product from wishlist');
+      else ToastHandler('success', 'Successfully added to wishlist');
     } catch (err) {
       console.log(err);
     }

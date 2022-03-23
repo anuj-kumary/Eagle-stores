@@ -1,13 +1,10 @@
 import './App.css';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { Home, Login, Product, Cart, WishList } from './pages';
-import { Footer, NavBar } from './components';
+import { Home, Login, Signup, Product, Cart, WishList, Logout } from './pages';
+import { Footer, Loader, NavBar } from './components';
 import { useAuth, useData } from './context';
-import Loader from './components/Loader/Loader';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Signup from './pages/Authentication/Signup';
-import Logout from './pages/Authentication/Logout';
 
 function App() {
   const { token } = useAuth();

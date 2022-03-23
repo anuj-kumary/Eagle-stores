@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Logout = () => {
+export const Logout = () => {
   return (
     <>
       <main className='logout__container'>
@@ -38,5 +38,3 @@ const Logout = () => {
     </>
   );
 };
-
-export default Logout;

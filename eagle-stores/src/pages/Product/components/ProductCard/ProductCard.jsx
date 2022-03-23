@@ -14,11 +14,10 @@ export const ProductCard = ({ state }) => {
   newData = sortByPrice(newData, state.filter.sortBy);
   newData = priceRangeFilter(newData, state.filter.priceRange);
   newData = searchFilter(newData, state.filter.search);
-
   return (
     <div className='product__cards'>
       {newData.map((item) => {
-        return <Product item={item} />;
+        return <Product item={item} key={item._id} />;
       })}
     </div>
   );

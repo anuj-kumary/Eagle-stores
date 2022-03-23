@@ -3,10 +3,12 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAuth, useData } from '../../context';
 import { ACTION_TYPE } from '../../utils/actionType';
 import { ToastHandler } from '../../utils/filterFunction';
+import { useState } from 'react';
 
 export const NavBar = () => {
   const { state, dispatch } = useData();
   const { token, setToken, setUser } = useAuth();
+  const [input, setInput] = useState('');
   const navigate = useNavigate();
 
   const logoutHandler = (e) => {
@@ -36,16 +38,21 @@ export const NavBar = () => {
         </div>
         <ul className='navbar__search'>
           <input
-            value={state.filter.search}
+            value={input}
             onChange={(e) => {
-              navigate('/product');
-              dispatch({
-                type: ACTION_TYPE.FILTER_CHANGE,
-                payload: {
-                  filterType: 'search',
-                  filterValue: e.target.value,
-                },
-              });
+              setInput(e.target.value);
+            }}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.target.value === '') {
+                dispatch({
+                  type: ACTION_TYPE.FILTER_CHANGE,
+                  payload: {
+                    filterType: 'search',
+                    filterValue: e.target.value,
+                  },
+                });
+                navigate('/product');
+              }
             }}
             className='search__box'
             type='search'

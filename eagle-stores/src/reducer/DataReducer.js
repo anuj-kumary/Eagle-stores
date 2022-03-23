@@ -55,21 +55,18 @@ export const DataReducer = (state, action) => {
       };
 
     case ACTION_TYPE.CLEAR_FILTER:
-      const clearCategories = Object.keys(state.filter.categories).reduce(
-        (acc, curr) => {
-          return {
-            ...acc,
-            [curr]: false,
-          };
-        },
-        {}
-      );
-
       const clearPriceRange = state.products.reduce((acc, curr) => {
         if (Number(curr.price) > acc) return Number(curr.price);
         return acc;
       }, 0);
 
+      const clearCategories = Object.keys(state.filter.categories).reduce(
+        (acc, curr) => ({
+          ...acc,
+          [curr]: false,
+        }),
+        {}
+      );
       return {
         ...state,
         filter: {
@@ -77,6 +74,7 @@ export const DataReducer = (state, action) => {
           sortBy: '',
           rating: '',
           priceRange: clearPriceRange,
+          search: '',
         },
       };
 

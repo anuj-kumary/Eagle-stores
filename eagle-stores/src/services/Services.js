@@ -28,6 +28,14 @@ export const GetWishItems = async ({ encodedToken }) =>
     },
   });
 
+export const DeleteWishItems = async ({ productId, encodedToken }) => {
+  return axios.delete(`/api/user/wishlist/${productId}`, {
+    headers: {
+      authorization: encodedToken,
+    },
+  });
+};
+
 export const PostCartItems = async ({ encodedToken, product }) =>
   await axios.post(
     '/api/user/cart',
