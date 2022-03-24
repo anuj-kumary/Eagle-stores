@@ -39,12 +39,6 @@ body {
     padding-left: .5rem;
 }
 
-.search__icon {
-    position: absolute;
-    padding: 0 .8rem;
-    right: 0;
-}
-
 .navbar__right {
     display: flex;
     justify-content: center;
@@ -52,7 +46,7 @@ body {
     margin-right: 1rem;
 }
 
-.badge{
+.badge {
     margin: 0;
 }
 
@@ -80,4 +74,34 @@ body {
 .badge__number {
     bottom: 1.2rem;
     left: 2.6rem;
+}
+
+.mobile__searchbar__container {
+    width: 97vw;
+    align-items: center;
+    height: 4rem;
+    padding: 1rem;
+    display: none;
+    margin-bottom: 1rem
+}
+
+.mobile__search {
+    padding: 1.2rem 1rem;
+}
+
+
+/* Mobile Responsive */
+@media screen and (max-width:700px) {
+    .navbar__search {
+        display: none;
+    }
+
+    .mobile__searchbar__container {
+        display: inline-block;
+    }
+
+    .mobile__search {
+        padding: 1.2rem 1rem;
+    }
+
 }

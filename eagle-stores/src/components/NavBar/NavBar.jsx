@@ -98,6 +98,29 @@ export const NavBar = () => {
           )}
         </ul>
       </nav>
+      <ul className='navbar__search mobile__searchbar__container'>
+        <input
+          className='mobile__search search__box'
+          value={input}
+          onChange={(e) => {
+            setInput(e.target.value);
+          }}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.target.value === '') {
+              dispatch({
+                type: ACTION_TYPE.FILTER_CHANGE,
+                payload: {
+                  filterType: 'search',
+                  filterValue: e.target.value,
+                },
+              });
+              navigate('/product');
+            }
+          }}
+          type='search'
+          placeholder='Search with name or categories'
+        />
+      </ul>
     </>
   );
 };
