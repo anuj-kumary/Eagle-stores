@@ -6,11 +6,17 @@ export const loginServices = async (email, password) =>
     password,
   });
 
-export const SignupServices = async ({ email, password, name }) =>
+export const SignupServices = async ({
+  firstName,
+  lastName,
+  password,
+  email,
+}) =>
   await axios.post('/api/auth/signup', {
-    email,
+    firstName,
+    lastName,
     password,
-    name,
+    email,
   });
 
 export const GetCartItems = async ({ encodedToken }) => {
