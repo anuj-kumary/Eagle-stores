@@ -4,10 +4,12 @@ import { ACTION_TYPE } from '../../../utils/actionType';
 import { ToastHandler } from '../../../utils/filterFunction';
 
 export const CartCard = ({ item }) => {
-  const { img, name, price, qty, _id, id } = item;
+  const { img, name, price, qty, originalPrice, _id, id } = item;
 
   const { token } = useAuth();
   const { dispatch } = useData();
+
+  const discount = Math.floor(((originalPrice - price) / originalPrice) * 100);
 
   const DeleteCartHandler = async () => {
     try {
@@ -70,33 +72,30 @@ export const CartCard = ({ item }) => {
       <div className='cart'>
         <div className='cart__horizontal'>
           <div className='cart__image'>
-            <img src={img} alt='MacBook Pro' />
+            <img className='product__img' src={img} alt='MacBook Pro' />
           </div>
           <div className='cart__content'>
             <h3 className='cart_heading'>{name}</h3>
             <div className='cart__price'>
               &#8377; {price}
+              <br />
               <span className='cart_price--notvalid'>
-                <del>₹230,900.00</del>
+                <del className='actual__price'>₹ {originalPrice}</del>
               </span>
             </div>
-            <div className='cart__offer'>50% off</div>
+            <div className='cart__offer'>{discount}% off</div>
             <div className='cart__quantity'>
               <p className='cart__text'>Quantity:</p>
-              <p onClick={DecrementHandler}>
+              <p className='inc-dec__btn' onClick={DecrementHandler}>
                 <i className='fas fa-minus-circle'></i>
               </p>
               <p className='cart__quantity-number'>{qty}</p>
-              <p onClick={IncrementHandler}>
+              <p className='inc-dec__btn' onClick={IncrementHandler}>
                 <i className='fas fa-plus-circle'></i>
               </p>
             </div>
             <div className='product__button'>
-              <button className='btn btn__primary'>Move to Wishlist</button>
-              <button
-                onClick={DeleteCartHandler}
-                className='btn btn__secondary'
-              >
+              <button onClick={DeleteCartHandler} className='btn'>
                 Remove From Cart
               </button>
             </div>

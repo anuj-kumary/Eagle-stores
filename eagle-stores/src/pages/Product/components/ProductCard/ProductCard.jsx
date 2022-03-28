@@ -6,7 +6,6 @@ import {
   searchFilter,
 } from '../../../../utils/filterFunction';
 import Product from './components/Product';
-import './ProductCard.css';
 
 export const ProductCard = ({ state }) => {
   let newData = categoryFilter(state.products, state.filter.categories);

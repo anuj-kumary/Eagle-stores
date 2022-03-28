@@ -24,7 +24,7 @@ export const NavBar = () => {
       type: ACTION_TYPE.WISHLIST,
       payload: { wishlist: [] },
     });
-
+    navigate('/logout');
     ToastHandler('info', 'Successful logged Out');
   };
 

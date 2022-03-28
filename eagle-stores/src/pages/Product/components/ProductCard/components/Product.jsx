@@ -12,11 +12,11 @@ import { ToastHandler } from '../../../../../utils/filterFunction';
 export default function Product({ item }) {
   const [cart, setCart] = useState(false);
   const [wish, setWish] = useState(false);
-  const { state, dispatch, setLoader } = useData();
+  const { state, dispatch } = useData();
   const { token } = useAuth();
   const navigate = useNavigate();
 
-  const { _id, img, name, price } = item;
+  const { _id, img, name, price, rating, originalPrice } = item;
 
   useEffect(() => {
     const cartfindItem = state.cartlist.find((ele) => ele._id === _id);
@@ -107,10 +107,18 @@ export default function Product({ item }) {
             ></i>
           </button>
         </div>
-        <h3 className='product__heading'>{name}</h3>
-        <div className='product__price'>&#8377; {price}</div>
+        <h3 className='text__left product__heading'>
+          {name} <span className='product__rating'>{rating}★</span>
+        </h3>
+        <div className='product__price text__left'>
+          &#8377; {price} <del className='actual__price'>{originalPrice}</del>
+        </div>
+
         <div className='product__button'>
-          <button onClick={(e) => cartHandler(e)} className='btn btn__primary'>
+          <button
+            onClick={(e) => cartHandler(e)}
+            className={cart ? 'btn goto__cart' : 'btn btn__primary'}
+          >
             {cart ? 'Go To Cart' : 'Add To Cart'}
           </button>
         </div>

@@ -32,8 +32,7 @@ export const Cart = () => {
                 <div key={item._id}>
                   <div className='cart__price--distribution'>
                     <p>
-                      {item.name}
-                      <span className='space'>Quantity: {item.qty}</span>
+                      {item.name} ({item.qty} item)
                       <span className='cart__price--value'>
                         &#8377; {item.price}
                       </span>
