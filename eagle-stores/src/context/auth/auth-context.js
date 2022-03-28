@@ -1,7 +1,6 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { loginServices, SignupServices } from '../../services/Services';
-import { useData } from '../data/data-context';
+import { SignupServices } from '../../services/Services';
 
 const AuthContext = createContext();
 
@@ -17,9 +16,14 @@ const AuthProvider = ({ children }) => {
     if (fetchToken) setToken(fetchToken.tokens);
   }, []);
 
-  const signupUser = async (email, password, name) => {
+  const signupUser = async (firstName, lastName, password, email) => {
     try {
-      const resp = await SignupServices({ email, password, name });
+      const resp = await SignupServices({
+        firstName,
+        lastName,
+        password,
+        email,
+      });
       if (resp.status === 201) {
         localStorage.setItem(
           'login',

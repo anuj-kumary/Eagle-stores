@@ -1,6 +1,15 @@
 import './App.css';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { Home, Login, Signup, Product, Cart, WishList, Logout } from './pages';
+import {
+  Home,
+  Login,
+  Signup,
+  Product,
+  Cart,
+  WishList,
+  Logout,
+  Profile,
+} from './pages';
 import { Footer, Loader, NavBar } from './components';
 import { useAuth, useData } from './context';
 import { ToastContainer } from 'react-toastify';
@@ -37,6 +46,7 @@ function App() {
         <Route path='/logout' element={<Logout />} />
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<Signup />} />
+        <Route path='/profile' element={<Profile />} />
       </Routes>
       <Footer />
     </>

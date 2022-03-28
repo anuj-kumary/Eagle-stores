@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/auth/auth-context';
+import { ToastHandler } from '../../utils/filterFunction';
 
 export function Signup() {
   const [signupForm, setSignForm] = useState({
-    name: '',
+    firstName: '',
+    lastName: '',
     password: '',
     email: '',
   });
@@ -24,10 +26,10 @@ export function Signup() {
 
   const signupHandler = (e) => {
     e.preventDefault();
-    const { email, password, name } = signupForm;
-    if (email && password && name !== '') {
+    const { firstName, lastName, password, email } = signupForm;
+    if (firstName && lastName && password && email !== '') {
       (async () => {
-        signupUser(email, password, name);
+        signupUser(firstName, lastName, password, email);
       })();
       ToastHandler('success', 'Welcome to Eagle Store');
     }
@@ -41,13 +43,24 @@ export function Signup() {
             <h2 className='heading text__center'>Signup</h2>
           </div>
           <div className='input'>
-            <label>Name</label>
+            <label>First Name</label>
             <input
               className='input-txt'
               type='text'
-              value={signupForm.name}
+              value={signupForm.firstName}
               onChange={(e) =>
-                setSignForm({ ...signupForm, name: e.target.value })
+                setSignForm({ ...signupForm, firstName: e.target.value })
+              }
+            />
+          </div>
+          <div className='input'>
+            <label>Last Name</label>
+            <input
+              className='input-txt'
+              type='text'
+              value={signupForm.lastName}
+              onChange={(e) =>
+                setSignForm({ ...signupForm, lastName: e.target.value })
               }
             />
           </div>

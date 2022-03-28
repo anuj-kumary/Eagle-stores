@@ -2,31 +2,14 @@ import './NavBar.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth, useData } from '../../context';
 import { ACTION_TYPE } from '../../utils/actionType';
-import { ToastHandler } from '../../utils/filterFunction';
+
 import { useState } from 'react';
 
 export const NavBar = () => {
   const { state, dispatch } = useData();
-  const { token, setToken, setUser } = useAuth();
+  const { token } = useAuth();
   const [input, setInput] = useState('');
   const navigate = useNavigate();
-
-  const logoutHandler = (e) => {
-    e.preventDefault();
-    localStorage.removeItem('login');
-    setToken(null);
-    setUser(null);
-    dispatch({
-      type: ACTION_TYPE.SETCART_LIST,
-      payload: { cartlist: [] },
-    });
-    dispatch({
-      type: ACTION_TYPE.WISHLIST,
-      payload: { wishlist: [] },
-    });
-    navigate('/logout');
-    ToastHandler('info', 'Successful logged Out');
-  };
 
   return (
     <>
@@ -82,11 +65,8 @@ export const NavBar = () => {
           </div>
           {token ? (
             <div className='badge'>
-              <Link onClick={(e) => logoutHandler(e)} to='/logout'>
-                <i
-                  title='Logout'
-                  className='badge__icon fas fa-sign-out-alt'
-                ></i>
+              <Link to='/profile'>
+                <i title='Profile' className='badge__icon fas fa-user'></i>
               </Link>
             </div>
           ) : (
