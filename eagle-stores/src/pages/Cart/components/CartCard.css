@@ -132,3 +132,7 @@
     margin: 1rem 0;
     width: auto;
 }
+
+.goto__wish {
+    border: 1px solid var(--grey-color);
+}

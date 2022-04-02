@@ -17,7 +17,6 @@ export const ProductAside = () => {
     LowToHigh: 'Low-to-High',
     HighToLow: 'High-to-Low',
   };
-  console.log(sidebar);
 
   return (
     <>

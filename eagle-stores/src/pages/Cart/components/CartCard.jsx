@@ -1,15 +1,46 @@
 import { useAuth, useData } from '../../../context';
-import { DeleteCart, IncDecCart } from '../../../services/Services';
+import { useState, useEffect } from 'react';
+import {
+  DeleteCart,
+  IncDecCart,
+  PostWishItems,
+} from '../../../services/Services';
 import { ACTION_TYPE } from '../../../utils/actionType';
 import { ToastHandler } from '../../../utils/filterFunction';
 
 export const CartCard = ({ item }) => {
   const { img, name, price, qty, originalPrice, _id, id } = item;
-
+  const [wish, setWish] = useState();
   const { token } = useAuth();
-  const { dispatch } = useData();
+  const { state, dispatch } = useData();
 
   const discount = Math.floor(((originalPrice - price) / originalPrice) * 100);
+
+  useEffect(() => {
+    const wishfindItem = state.wishlist.find((ele) => ele._id === _id);
+    if (wishfindItem) {
+      setWish(true);
+    } else {
+      setWish(false);
+    }
+  }, [state.wishlist]);
+
+  const wishListHandler = async () => {
+    try {
+      const response = await PostWishItems({
+        product: item,
+        encodedToken: token,
+      });
+      if (response.status === 200 || response.status === 201) {
+        dispatch({
+          type: ACTION_TYPE.WISHLIST,
+          payload: { wishlist: response.data.wishlist },
+        });
+      } else ToastHandler('success', 'Successfully added to wishlist');
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   const DeleteCartHandler = async () => {
     try {
@@ -95,8 +126,14 @@ export const CartCard = ({ item }) => {
               </p>
             </div>
             <div className='product__button'>
-              <button onClick={DeleteCartHandler} className='btn'>
+              <button onClick={DeleteCartHandler} className='btn btn--outlined'>
                 Remove From Cart
+              </button>
+              <button
+                onClick={wishListHandler}
+                className={wish ? 'btn goto__wish' : 'btn  btn__primary'}
+              >
+                {wish ? 'Alredy In Wishlist' : 'Add To Wishlist'}
               </button>
             </div>
           </div>
