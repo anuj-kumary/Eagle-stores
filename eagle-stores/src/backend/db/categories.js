@@ -1,4 +1,4 @@
-import { v4 as uuid } from "uuid";
+import { v4 as uuid } from 'uuid';
 
 /**
  * Category Database can be added here.
@@ -8,17 +8,14 @@ import { v4 as uuid } from "uuid";
 export const categories = [
   {
     _id: uuid(),
-    categoryName: "laptop",
-    description:"",
+    categoryName: 'laptop',
   },
   {
     _id: uuid(),
-    categoryName: "phone",
-    description: ""
+    categoryName: 'phone',
   },
   {
     _id: uuid(),
-    categoryName: "earbuds",
-    description:""
+    categoryName: 'earbuds',
   },
 ];

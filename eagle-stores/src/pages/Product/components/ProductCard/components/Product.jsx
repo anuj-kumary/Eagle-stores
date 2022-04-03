@@ -99,7 +99,10 @@ export default function Product({ item }) {
   return (
     <div key={_id}>
       <div className='product__card'>
-        <div className='product__image'>
+        <div
+          onClick={() => navigate(`/product/${_id}`)}
+          className='product__image'
+        >
           <img src={img} alt={name} />
           <button onClick={wishListHandler} className='product__favourite'>
             <i

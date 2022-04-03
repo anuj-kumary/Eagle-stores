@@ -91,7 +91,6 @@ export const CartCard = ({ item }) => {
           type: ACTION_TYPE.SETCART_LIST,
           payload: { cartlist: res.data.cart },
         });
-        console.log(cartlist);
       }
     } catch (err) {
       console.log(err);
