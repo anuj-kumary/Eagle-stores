@@ -6,3 +6,4 @@ export { Login } from './Authentication/Login';
 export { Signup } from './Authentication/Signup';
 export { Logout } from './Authentication/Logout';
 export { Profile } from './Profile/Profile';
+export { ProductDetails } from './ProductDetails/ProductDetails';
