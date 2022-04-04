@@ -10,6 +10,7 @@ import {
   Logout,
   Profile,
   ProductDetails,
+  PageNotFound,
 } from './pages';
 import { Footer, Loader, NavBar } from './components';
 import { useAuth, useData } from './context';
@@ -49,6 +50,7 @@ function App() {
         <Route path='/signup' element={<Signup />} />
         <Route path='/profile' element={<Profile />} />
         <Route path='/product/:productId' element={<ProductDetails />} />
+        <Route path='*' element={<PageNotFound />} />
       </Routes>
       <Footer />
     </>
