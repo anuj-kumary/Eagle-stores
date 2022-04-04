@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { ACTION_TYPE } from '../utils/actionType';
 
 export const loginServices = async (email, password) =>
   await axios.post('/api/auth/login', {
@@ -84,4 +85,21 @@ export const DeleteCart = async ({ productId, encodedToken }) => {
       authorization: encodedToken,
     },
   });
+};
+
+export const clearCart = async (dataDispatch, cart, token) => {
+  try {
+    for (const item of cart) {
+      await axios.delete(`api/user/cart/${item._id}`, {
+        headers: {
+          authorization: token,
+        },
+      });
+    }
+    dataDispatch({
+      type: ACTION_TYPE.CLEAR_CART,
+    });
+  } catch (error) {
+    console.log('Error in clear cart service', error);
+  }
 };

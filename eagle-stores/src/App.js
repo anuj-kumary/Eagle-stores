@@ -10,6 +10,8 @@ import {
   Logout,
   Profile,
   ProductDetails,
+  Checkout,
+  Order,
 } from './pages';
 import { Footer, Loader, NavBar } from './components';
 import { useAuth, useData } from './context';
@@ -48,6 +50,8 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<Signup />} />
         <Route path='/profile' element={<Profile />} />
+        <Route path='/checkout' element={<Checkout />} />
+        <Route path='/order' element={<Order />} />
         <Route path='/product/:productId' element={<ProductDetails />} />
       </Routes>
       <Footer />

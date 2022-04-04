@@ -1,6 +1,7 @@
 import { CartCard } from './components/CartCard';
 import { useData } from '../../context/data/data-context';
 import '../Cart/components/CartCard.css';
+import { Link } from 'react-router-dom';
 
 export const Cart = () => {
   const { state } = useData();
@@ -34,7 +35,7 @@ export const Cart = () => {
                     <p>
                       {item.name} ({item.qty} item)
                       <span className='cart__price--value'>
-                        &#8377; {item.price}
+                        &#8377;{`${item.qty * item.price}`}
                       </span>
                     </p>
                   </div>
@@ -47,7 +48,9 @@ export const Cart = () => {
                 return acc + curr.price * curr.qty;
               }, 0)}
             </h3>
-            <a className='btn btn__primary'>Proceed To Check Out</a>
+            <Link to='/checkout' className='btn btn__primary'>
+              Proceed To Check Out
+            </Link>
           </div>
         )}
       </main>
