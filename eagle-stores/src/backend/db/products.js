@@ -15,6 +15,8 @@ export const products = [
     brand: 'Apple',
     price: 194900,
     originalPrice: 254900,
+    trending: true,
+    out_of_stock: false,
   },
   {
     _id: 'b333a686-cf06-4589',
@@ -25,6 +27,8 @@ export const products = [
     brand: 'OnePlus',
     price: 7990.0,
     originalPrice: 9990.0,
+    trending: false,
+    out_of_stock: true,
   },
   {
     _id: 'e1194171-9473-477c-83cb',
@@ -35,6 +39,8 @@ export const products = [
     brand: 'OnePlus',
     price: 42750.0,
     originalPrice: 49000.0,
+    trending: true,
+    out_of_stock: false,
   },
   {
     _id: '21e1e422-20c4-4fdc-88eb',
@@ -45,6 +51,8 @@ export const products = [
     brand: 'Asus',
     price: 94990.0,
     originalPrice: 114990.0,
+    trending: false,
+    out_of_stock: true,
   },
   {
     _id: 'd1b36b54-fb14-45a2-8c05',
@@ -55,6 +63,8 @@ export const products = [
     brand: 'realme',
     price: 12000.0,
     originalPrice: 15000.0,
+    trending: true,
+    out_of_stock: false,
   },
   {
     _id: 'e8803e17-a7a0-4444-af65',
@@ -65,6 +75,8 @@ export const products = [
     brand: 'Lenovo',
     price: 31790.0,
     originalPrice: 35990.0,
+    trending: false,
+    out_of_stock: false,
   },
   {
     _id: '0645b246-1e6e-489a-ab73',
@@ -75,6 +87,8 @@ export const products = [
     brand: 'Dell',
     price: 87990.0,
     originalPrice: 88990.0,
+    trending: false,
+    out_of_stock: true,
   },
   {
     _id: '80c6cdfb-a770-4a1f-8437',
@@ -85,6 +99,8 @@ export const products = [
     rating: 4.3,
     price: 52594.0,
     originalPrice: 62594.0,
+    trending: false,
+    out_of_stock: false,
   },
   {
     _id: '721111df-69ff-47c1-a491',
@@ -95,6 +111,8 @@ export const products = [
     rating: 4.3,
     price: 1149.0,
     originalPrice: 1349.0,
+    trending: true,
+    out_of_stock: false,
   },
   {
     _id: '61b1fc00-de15-4db8-a0ba',
@@ -105,6 +123,8 @@ export const products = [
     brand: 'boAt',
     price: 1599.0,
     originalPrice: 1799.0,
+    trending: true,
+    out_of_stock: false,
   },
   {
     _id: '860bf458-13db-41c0-ae66',
@@ -114,6 +134,8 @@ export const products = [
     rating: 3.2,
     price: 6254.0,
     originalPrice: 7249.0,
+    trending: false,
+    out_of_stock: true,
   },
   {
     _id: 'f1b0ad7a-3d7e-45a3-bc7f',
@@ -124,5 +146,7 @@ export const products = [
     rating: 4.6,
     price: 1199.0,
     originalPrice: 1299.0,
+    trending: true,
+    out_of_stock: false,
   },
 ];

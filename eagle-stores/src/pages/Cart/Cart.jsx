@@ -19,7 +19,7 @@ export const Cart = () => {
         {state.cartlist.length === 0 && (
           <h4 className='text__center'>OOPS, Cart is empty</h4>
         )}
-        <div className='product__cart'>
+        <div className='products__cart'>
           {cartData.map((item) => {
             return <CartCard item={item} key={item.id} />;
           })}

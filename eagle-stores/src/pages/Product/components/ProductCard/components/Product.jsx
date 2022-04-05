@@ -16,7 +16,16 @@ export default function Product({ item }) {
   const { token } = useAuth();
   const navigate = useNavigate();
 
-  const { _id, img, name, price, rating, originalPrice } = item;
+  const {
+    _id,
+    img,
+    name,
+    price,
+    rating,
+    originalPrice,
+    out_of_stock,
+    trending,
+  } = item;
 
   useEffect(() => {
     const cartfindItem = state.cartlist.find((ele) => ele._id === _id);
@@ -97,14 +106,21 @@ export default function Product({ item }) {
   };
 
   return (
-    <div key={_id}>
-      <div className='product__card'>
-        <div
-          onClick={() => navigate(`/product/${_id}`)}
-          className='product__image'
-        >
-          <img src={img} alt={name} />
-          <button onClick={wishListHandler} className='product__favourite'>
+    <div className='cards' key={_id}>
+      <div className={out_of_stock ? 'product__card overlay' : 'product__card'}>
+        <div className='overlay-container'></div>
+        <div className='product__image'>
+          <img
+            onClick={() => navigate(`/product/${_id}`)}
+            src={img}
+            alt={name}
+          />
+          {out_of_stock ? <h4 className='outofstock'>Out Of Stock</h4> : null}
+          {trending && <span className='product_trend'>Trending</span>}
+          <button
+            onClick={() => wishListHandler()}
+            className='product__favourite'
+          >
             <i
               className={`fas fa-heart ${wish ? 'add__wish' : 'remove__wish'}`}
             ></i>
@@ -121,6 +137,7 @@ export default function Product({ item }) {
           <button
             onClick={(e) => cartHandler(e)}
             className={cart ? 'btn goto__cart' : 'btn btn__primary'}
+            disabled={out_of_stock}
           >
             {cart ? 'Go To Cart' : 'Add To Cart'}
           </button>

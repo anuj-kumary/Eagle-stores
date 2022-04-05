@@ -17,7 +17,7 @@
     flex-wrap: wrap;
 }
 
-.cart__horizontal {
+.cart__horizontals {
     width: 30rem;
     height: 22rem;
     display: flex;
@@ -25,7 +25,7 @@
     margin-bottom: 2rem;
 }
 
-.cart__image {
+.carts__image {
     width: 20rem;
     height: 22rem;
     object-fit: cover;
@@ -52,7 +52,7 @@
     object-fit: contain;
 }
 
-.cart__price {
+.carts__price {
     font-weight: 700;
     font-size: 1.2rem;
 }
@@ -72,6 +72,10 @@
 .cart__quantity {
     display: flex;
     align-items: center;
+}
+
+.btn--outlined {
+    color: var(--black);
 }
 
 .cart__quantity-number {

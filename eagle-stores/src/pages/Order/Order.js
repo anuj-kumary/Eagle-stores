@@ -1,13 +1,18 @@
 import { useAuth, useData, useOrder } from '../../context';
+import { useEffect } from 'react';
 import '../Order/Order.css';
 
 export const Order = () => {
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+    });
+  }, []);
+
   const { orderState } = useOrder();
   const {
     user: { firstName, lastName },
   } = useAuth();
-  console.log(orderState);
-  console.log(orderState.orders[0].products);
   const order = orderState.orders[0] || {};
   return (
     <>

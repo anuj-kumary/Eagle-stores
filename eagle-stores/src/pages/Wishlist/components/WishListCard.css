@@ -14,7 +14,7 @@
 
 .wishlist {
     max-width: 80rem;
-    margin: 0 auto;
+    margin: 0 1rem;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-auto-rows: auto;
@@ -43,6 +43,7 @@
 .product__favourite {
     border-width: 0;
     padding: .6rem;
+    cursor: pointer;
 }
 
 @media screen and (max-width:1000px) {
