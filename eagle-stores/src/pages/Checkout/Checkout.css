@@ -1,0 +1,62 @@
+.card {
+    width: 28rem;
+}
+
+.checkout__container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.address__name {
+    display: inline;
+}
+
+.card {
+    height: fit-content;
+    padding: 1rem 0;
+}
+
+.checkout {
+    display: flex;
+    flex-direction: column;
+}
+
+.checkout__item,
+.total__price {
+    padding: .3rem 1.5rem;
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+.total__price {
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.checkout__heading {
+    font-size: 1.3rem;
+    padding: .5rem 0 1rem 0;
+}
+
+.checkout__qty,
+.checkout__discount,
+.checkout__price {
+    float: right;
+}
+
+.horizontal__line {
+    height: .1rem;
+    margin: .5rem 0;
+    background-color: var(--off-grey);
+    width: 100%;
+}
+
+.place-order__btn {
+    padding: 0 1rem;
+}
+
+.place-order__btn .btn {
+    background-color: var(--primary-color);
+    color: var(--off-white);
+    font-size: 1.1rem;
+}
