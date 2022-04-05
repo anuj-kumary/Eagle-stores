@@ -56,7 +56,6 @@ function App() {
         <Route path='/product/:productId' element={<ProductDetails />} />
         <Route path='*' element={<PageNotFound />} />
       </Routes>
-      <Footer />
     </>
   );
 }

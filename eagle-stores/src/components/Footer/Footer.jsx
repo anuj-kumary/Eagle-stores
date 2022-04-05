@@ -20,9 +20,6 @@ export const Footer = () => {
               <i className='footer__icon fas fa-envelope'></i>
               eaglestores@gmail.com
             </li>
-            <li className='footer__list'>
-              <i className='footer__icon fas fa-phone-alt'></i> +01 234 567 88
-            </li>
           </div>
           <div className='footer__social'>
             <a
@@ -45,7 +42,6 @@ export const Footer = () => {
             </a>
           </div>
         </div>
-        <p className='copyright text__center'>© 2022 Copyright: Eagle Stores</p>
       </footer>
     </>
   );

@@ -4,7 +4,7 @@
     padding: 1rem;
     display: flex;
     flex-direction: column;
-    margin: 0;
+    margin: .52rem 0 0 0
 }
 
 .footer__container {

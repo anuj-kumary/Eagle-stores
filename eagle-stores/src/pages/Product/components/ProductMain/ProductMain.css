@@ -10,13 +10,6 @@
     padding-left: .5rem;
 }
 
-.product-card-out-of-stock::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: fit-content;
-}
-
 .product__button {
     padding: 1rem 1rem 0 1rem;
 }
@@ -27,6 +20,11 @@
 
 .badge {
     margin: 0 .6rem 0 0;
+}
+
+.overlay {
+    filter: contrast(40%);
+    content: 'Out of Stock';
 }
 
 .product__heading {
