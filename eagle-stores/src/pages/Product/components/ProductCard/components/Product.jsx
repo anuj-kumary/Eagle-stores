@@ -115,6 +115,7 @@ export default function Product({ item }) {
             src={img}
             alt={name}
           />
+          {out_of_stock ? <h4 className='outofstock'>Out Of Stock</h4> : null}
           {trending && <span className='product_trend'>Trending</span>}
           <button
             onClick={() => wishListHandler()}
