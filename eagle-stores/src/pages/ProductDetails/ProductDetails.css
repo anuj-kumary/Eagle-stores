@@ -31,7 +31,8 @@
 
 .cart__image {
     width: 100rem;
-    object-fit: contain;
+    height: 22rem;
+    object-fit: cover;
     display: block;
     padding: 1rem;
     position: relative;

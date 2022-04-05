@@ -7,9 +7,11 @@ import {
 } from '../../../services/Services';
 import { ACTION_TYPE } from '../../../utils/actionType';
 import { ToastHandler } from '../../../utils/filterFunction';
+import { useNavigate } from 'react-router-dom';
 
 export const CartCard = ({ item }) => {
-  const { img, name, price, qty, originalPrice, _id, id } = item;
+  const { img, name, price, qty, originalPrice, _id } = item;
+  const navigate = useNavigate();
   const [wish, setWish] = useState();
   const { token } = useAuth();
   const { state, dispatch } = useData();
@@ -25,7 +27,11 @@ export const CartCard = ({ item }) => {
     }
   }, [state.wishlist]);
 
-  const wishListHandler = async () => {
+  const wishListHandler = async (e) => {
+    if (e.target.innerText === 'Go to Wishlist') {
+      navigate('/wishlist');
+      return;
+    }
     try {
       const response = await PostWishItems({
         product: item,
@@ -100,13 +106,13 @@ export const CartCard = ({ item }) => {
   return (
     <>
       <div className='cart'>
-        <div className='cart__horizontal'>
-          <div className='cart__image'>
+        <div className='cart__horizontals'>
+          <div className='carts__image'>
             <img className='product__img' src={img} alt='MacBook Pro' />
           </div>
           <div className='cart__content'>
             <h3 className='cart_heading'>{name}</h3>
-            <div className='cart__price'>
+            <div className='carts__price'>
               &#8377; {price}
               <br />
               <span className='cart_price--notvalid'>
@@ -129,10 +135,10 @@ export const CartCard = ({ item }) => {
                 Remove From Cart
               </button>
               <button
-                onClick={wishListHandler}
+                onClick={(e) => wishListHandler(e)}
                 className={wish ? 'btn goto__wish' : 'btn  btn__primary'}
               >
-                {wish ? 'Alredy In Wishlist' : 'Add To Wishlist'}
+                {wish ? 'Go to Wishlist' : 'Add To Wishlist'}
               </button>
             </div>
           </div>

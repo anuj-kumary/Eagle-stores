@@ -1,22 +1,42 @@
 .footer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     width: 100%;
     background-color: #C4C4C480;
-    margin: 5rem 0 0 0;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
 }
 
-.footer__text {
-    padding: 1rem 0;
+.footer__container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer__heading {
+    padding-bottom: .5rem;
+}
+
+.footer__name {
+    width: 20rem;
+    word-break: break-all;
+}
+
+.footer__list {
+    padding-top: .5rem
 }
 
 .footer__icon {
-    padding: 1rem 0;
     cursor: pointer;
+    color: var(--black);
+    font-size: 1.3rem;
+    padding: 0 1rem;
 }
 
-.icon {
-    font-size: 1.85rem;
-    padding: 0 1.2rem;
+.footer__social {
+    display: flex;
+}
+
+
+.copyright {
+    margin-top: 2rem;
 }

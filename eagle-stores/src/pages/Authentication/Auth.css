@@ -17,6 +17,10 @@ body {
     height: 80vh;
 }
 
+.signup__container {
+    margin-top: 1rem;
+}
+
 .auth__form {
     padding-bottom: 1rem;
     width: 25rem;
@@ -93,6 +97,7 @@ input[type=password] {
 .logout__buttons>.btn {
     margin: 1rem .5rem 0 0;
     padding: .8rem 3.5rem;
+    width: auto;
 }
 
 .login__content {

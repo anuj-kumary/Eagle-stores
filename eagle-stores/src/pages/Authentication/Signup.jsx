@@ -37,7 +37,7 @@ export function Signup() {
 
   return (
     <>
-      <div className='container'>
+      <div className='container signup__container'>
         <div className='auth__form'>
           <div className='auth__title'>
             <h2 className='heading text__center'>Signup</h2>

@@ -16,7 +16,8 @@ export default function Product({ item }) {
   const { token } = useAuth();
   const navigate = useNavigate();
 
-  const { _id, img, name, price, rating, originalPrice } = item;
+  const { _id, img, name, price, rating, originalPrice, in_stock, trending } =
+    item;
 
   useEffect(() => {
     const cartfindItem = state.cartlist.find((ele) => ele._id === _id);
@@ -97,14 +98,19 @@ export default function Product({ item }) {
   };
 
   return (
-    <div key={_id}>
+    <div className='cards' key={_id}>
       <div className='product__card'>
-        <div
-          onClick={() => navigate(`/product/${_id}`)}
-          className='product__image'
-        >
-          <img src={img} alt={name} />
-          <button onClick={wishListHandler} className='product__favourite'>
+        <div className='product__image'>
+          <img
+            onClick={() => navigate(`/product/${_id}`)}
+            src={img}
+            alt={name}
+          />
+          {trending && <span className='product_trend'>Trending</span>}
+          <button
+            onClick={() => wishListHandler()}
+            className='product__favourite'
+          >
             <i
               className={`fas fa-heart ${wish ? 'add__wish' : 'remove__wish'}`}
             ></i>
