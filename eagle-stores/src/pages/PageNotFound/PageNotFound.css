@@ -1,0 +1,27 @@
+.container__left {
+    width: 40rem;
+}
+
+.heading {
+    margin-bottom: 1rem;
+    font-size: 1.6rem;
+    letter-spacing: .1rem;
+}
+
+.sub__heading {
+    font-size: 1rem;
+}
+
+.container__right {
+    width: 30rem;
+}
+
+.title {
+    padding: 1rem 0;
+}
+
+@media screen and (max-width:600px) {
+    .container {
+        flex-direction: column;
+    }
+}

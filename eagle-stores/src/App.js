@@ -12,6 +12,7 @@ import {
   ProductDetails,
   Checkout,
   Order,
+  PageNotFound,
 } from './pages';
 import { Footer, Loader, NavBar } from './components';
 import { useAuth, useData } from './context';
@@ -53,6 +54,7 @@ function App() {
         <Route path='/checkout' element={<Checkout />} />
         <Route path='/order' element={<Order />} />
         <Route path='/product/:productId' element={<ProductDetails />} />
+        <Route path='*' element={<PageNotFound />} />
       </Routes>
       <Footer />
     </>
