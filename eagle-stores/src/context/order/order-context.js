@@ -9,7 +9,7 @@ const initialValue = {
 const reducer = (state, action) => {
   switch (action.type) {
     case 'ADD_ORDERS':
-      return { ...state, orders: [...state.orders, action.payload] };
+      return { ...state, orders: [action.payload, ...state.orders] };
 
     default:
       return state;

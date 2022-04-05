@@ -12,9 +12,9 @@ export const Checkout = () => {
             <p className='address__name'>Anujkumar</p>
           </label>
           <p className='card__desc'>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident
-            fuga
+            5th Floor, Wing-B, Embassy Prime, CV Raman Nagar
           </p>
+          <p className='card__desc'>Bangalore - 560093</p>
           <p className='card__desc'>Phone Number : 123456789</p>
         </div>
         <Checkoutprice />
