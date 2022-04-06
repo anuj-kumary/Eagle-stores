@@ -1,9 +1,16 @@
+import { useEffect } from 'react';
 import { CartCard } from './components/CartCard';
 import { useData } from '../../context/data/data-context';
 import '../Cart/components/CartCard.css';
 import { Link } from 'react-router-dom';
 
 export const Cart = () => {
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+    });
+  }, []);
+
   const { state } = useData();
   const cartData = [...state.cartlist];
   return (

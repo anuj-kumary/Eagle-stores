@@ -1,9 +1,15 @@
+import { useEffect } from 'react';
 import { useData } from '../../context';
 import Product from '../Product/components/ProductCard/components/Product';
 import './components/WishListCard.css';
 
 export const WishList = () => {
   const { state } = useData();
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+    });
+  }, []);
 
   return (
     <>

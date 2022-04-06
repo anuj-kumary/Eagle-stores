@@ -34,7 +34,7 @@ export const Login = () => {
     e.preventDefault();
     try {
       let resp;
-      if (e.target.innerText === 'Login as Guest') {
+      if (e.target.innerText === 'Sign In as Guest') {
         setLoginUser({
           email: 'adarshbalak@gmail.com',
           password: 'adarshBalaki123',
@@ -84,12 +84,13 @@ export const Login = () => {
     <div className='container'>
       <div className='auth__form'>
         <div className='auth__title'>
-          <h2 className='heading text__center'>Login</h2>
+          <h2 className='heading text__center'>Sign In</h2>
         </div>
         <div className='input'>
           <label>Email</label>
           <input
             className='input-txt'
+            placeholder='abc@gmail.com'
             type='email'
             value={loginUser.email}
             onChange={(e) => {
@@ -105,6 +106,7 @@ export const Login = () => {
           <input
             className='input-txt'
             type='password'
+            placeholder='********'
             value={loginUser.password}
             onChange={(e) => {
               setLoginUser({
@@ -114,31 +116,28 @@ export const Login = () => {
             }}
           />
         </div>
-        <div className='input'>
-          <label className='input__checkbox'></label>
-          <input type='checkbox' />
-          <span className='text'>Remember Me</span>
-          <a className='auth__forget'>Forget your Password?</a>
-        </div>
 
         <div className='btn__signup text__center'>
           <button
             className='btn btn__primary'
             onClick={(e) => loginHandler(e, setLoginUser, loginUser)}
           >
-            Login
+            Sign In
           </button>
           <button
             className='btn'
             onClick={(e) => loginHandler(e, setLoginUser, loginUser)}
           >
-            Login as Guest
+            Sign In as Guest
           </button>
         </div>
         <div className='text__center'>
-          <Link to='/signup' className='login__link fw__400'>
-            Create new account
-          </Link>
+          <p className='login__nav'>
+            Don't have an Account?
+            <Link to='/signup' className='login___btn--now'>
+              Sign Up
+            </Link>
+          </p>
         </div>
       </div>
     </div>

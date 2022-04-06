@@ -40,13 +40,14 @@ export function Signup() {
       <div className='container signup__container'>
         <div className='auth__form'>
           <div className='auth__title'>
-            <h2 className='heading text__center'>Signup</h2>
+            <h2 className='heading text__center'>SignUp</h2>
           </div>
           <div className='input'>
             <label>First Name</label>
             <input
               className='input-txt'
               type='text'
+              placeholder='John'
               value={signupForm.firstName}
               onChange={(e) =>
                 setSignForm({ ...signupForm, firstName: e.target.value })
@@ -58,6 +59,7 @@ export function Signup() {
             <input
               className='input-txt'
               type='text'
+              placeholder='Doe'
               value={signupForm.lastName}
               onChange={(e) =>
                 setSignForm({ ...signupForm, lastName: e.target.value })
@@ -69,6 +71,7 @@ export function Signup() {
             <input
               className='input-txt'
               type='email'
+              placeholder='abc@gmail.com'
               value={signupForm.email}
               onChange={(e) =>
                 setSignForm({ ...signupForm, email: e.target.value })
@@ -80,17 +83,12 @@ export function Signup() {
             <input
               className='input-txt'
               type='password'
+              placeholder='*********'
               value={signupForm.password}
               onChange={(e) =>
                 setSignForm({ ...signupForm, password: e.target.value })
               }
             />
-          </div>
-          <div className='input'>
-            <label className='input__checkbox'>
-              <input type='checkbox' />
-              <span className='text'>I accept all Terms & Condition</span>
-            </label>
           </div>
 
           <div className='btn__signup text__center'>
@@ -102,9 +100,12 @@ export function Signup() {
             </button>
           </div>
           <div className='text__center'>
-            <Link to='/login' className='login__link fw__400'>
-              Alredy have an account
-            </Link>
+            <p className='login__nav'>
+              Alredy a Member?
+              <Link to='/login' className='login___btn--now'>
+                Sign In
+              </Link>
+            </p>
           </div>
         </div>
       </div>

@@ -65,6 +65,19 @@ input[type=password] {
     width: 100%;
 }
 
+.login__nav {
+    font-size: .9rem;
+}
+
+.login___btn--now {
+    border-bottom: 1px solid var(--warning-color);
+    margin-left: .3rem;
+}
+
+.login___btn--now:hover {
+    color: var(--warning-color);
+}
+
 .logout__container {
     width: 90vw;
     margin: 0 auto;

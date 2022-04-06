@@ -89,7 +89,7 @@ export const Checkoutprice = () => {
       name: 'Eagle Store',
       description: 'Thank you for shopping with us',
       image:
-        'https://res.cloudinary.com/dgwzpbj4k/image/upload/v1647589272/shoemall/logo1_utxkw6.png',
+        'https://res.cloudinary.com/anujy0510/image/upload/v1649229979/favicon_rmrwre.png',
       handler: function (response) {
         const tempObj = {
           products: [...cartData],
