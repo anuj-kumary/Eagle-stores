@@ -14,7 +14,7 @@ import {
   Order,
   PageNotFound,
 } from './pages';
-import { Footer, Loader, NavBar } from './components';
+import { Footer, Loader, NavBar, PrivateRoute } from './components';
 import { useAuth, useData } from './context';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -41,18 +41,47 @@ function App() {
         <Route path='/product' element={<Product />} />
         <Route
           path='/cart'
-          element={token ? <Cart /> : <Navigate to='/login' />}
+          element={
+            <PrivateRoute>
+              <Cart />
+            </PrivateRoute>
+          }
         />
         <Route
           path='/wishlist'
-          element={token ? <WishList /> : <Navigate to='/login' />}
+          element={
+            <PrivateRoute>
+              <WishList />
+            </PrivateRoute>
+          }
         />
         <Route path='/logout' element={<Logout />} />
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<Signup />} />
-        <Route path='/profile' element={token ? <Profile /> : <Login />} />
-        <Route path='/checkout' element={token ? <Checkout /> : <Login />} />
-        <Route path='/order' element={token ? <Order /> : <Login />} />
+        <Route
+          path='/profile'
+          element={
+            <PrivateRoute>
+              <Profile />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path='/checkout'
+          element={
+            <PrivateRoute>
+              <Checkout />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path='/order'
+          element={
+            <PrivateRoute>
+              <Order />
+            </PrivateRoute>
+          }
+        />
         <Route path='/product/:productId' element={<ProductDetails />} />
         <Route path='*' element={<PageNotFound />} />
       </Routes>
