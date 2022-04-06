@@ -50,9 +50,9 @@ function App() {
         <Route path='/logout' element={<Logout />} />
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<Signup />} />
-        <Route path='/profile' element={<Profile />} />
-        <Route path='/checkout' element={<Checkout />} />
-        <Route path='/order' element={<Order />} />
+        <Route path='/profile' element={token ? <Profile /> : <Login />} />
+        <Route path='/checkout' element={token ? <Checkout /> : <Login />} />
+        <Route path='/order' element={token ? <Order /> : <Login />} />
         <Route path='/product/:productId' element={<ProductDetails />} />
         <Route path='*' element={<PageNotFound />} />
       </Routes>

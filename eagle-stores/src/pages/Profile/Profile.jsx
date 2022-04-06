@@ -43,8 +43,6 @@ export const Profile = () => {
 
           <div className='card__desc profile__list'>
             <a className='list__item'>My Order</a>
-            <a className='list__item'>Wishlist</a>
-            <a className='list__item'>Address Management</a>
             <a className='list__item'>Setting</a>
             <Link
               to='/logout'
