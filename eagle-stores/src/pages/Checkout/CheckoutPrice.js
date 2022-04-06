@@ -11,10 +11,8 @@ export const Checkoutprice = () => {
   const { orderDispatch } = useOrder();
   const cartData = [...state.cartlist];
   const navigate = useNavigate();
-  const {
-    user: { firstName, lastName, email },
-    token,
-  } = useAuth();
+  const { user, token } = useAuth();
+  const { firstName, lastName, email } = user || {};
 
   const price = cartData.reduce((acc, curr) => {
     return acc + curr.originalPrice * curr.qty;

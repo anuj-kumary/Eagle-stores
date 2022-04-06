@@ -1,4 +1,4 @@
-import { useAuth, useData, useOrder } from '../../context';
+import { useOrder } from '../../context';
 import { useEffect } from 'react';
 import '../Order/Order.css';
 
@@ -10,24 +10,19 @@ export const Order = () => {
   }, []);
 
   const { orderState } = useOrder();
-  const {
-    user: { firstName, lastName },
-  } = useAuth();
-  const order = orderState.orders[0] || {};
+  const order = orderState?.orders[0] || {};
   return (
     <>
       <h2 className='order__heading text__center'>Order Summary</h2>
+      {order.length < 1 && <h3 className='text__center'>No order found !</h3>}
       <div className='order__detail'>
         <div className='card card--text'>
           <h3 className='card__heading success'>Order Confirmed</h3>
-          <h4 className='order__name'>
-            {firstName} {lastName}
-          </h4>
 
           <div key={order.paymentId}>
             <h4 className='card__price'>Payment ID: {order.paymentId}</h4>
             <h4 className='card__price'>Total Amount : ₹ {order.amount}</h4>
-            {order.products.map((prod) => (
+            {order.products?.map((prod) => (
               <div key={prod._id}>
                 <div className='card card--horizontal'>
                   <div className='card--horizontal-head'>
