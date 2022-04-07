@@ -27,9 +27,7 @@
   ```
   
   ## Description-
- - Eagle Store is an ecommerce web app for Gadgets of various kinds.Eagle Store offer its users to purchase from a wide variety of Gadgets available. 
- - Users will be able to create account , login and logout from the application via an authentication system. 
- - Responsive ✅
+ - Eagle Store is an ecommerce web app for Gadgets of various kinds. Eagle Store offer its users to purchase from a wide variety of Gadgets available. 
 
 ## Technologies Used -
  - React JS
@@ -49,6 +47,7 @@
     - Signin
     - Signup
     - Logout
+- Responsive ✅
    
 ## Demo -
 
