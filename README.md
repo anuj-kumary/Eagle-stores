@@ -2,9 +2,10 @@
 <h3 align="center"> Eagle-Store - An Online Shopping Site For Gadgets </h3>
 
 <div align="center">
-
+ 
  ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
  ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+ ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
  ![Netlify](https://img.shields.io/badge/netlify-%23000000.svg?style=for-the-badge&logo=netlify&logoColor=#00C7B7)
  ![Watch](https://img.shields.io/github/watchers/anuj-kumary/Eagle-Store.svg)
  ![Star](https://img.shields.io/github/stars/anuj-kumary/Eagle-Store.svg)
@@ -17,7 +18,8 @@
  
 
   ```
-   $ https://github.com/anuj-kumary/Eagle-stores.git
+   $ git clone https://github.com/anuj-kumary/Eagle-stores.git
+   $ cd Eagle-stores
    $ cd eagle-stores
    $ npm install
    $ npm start
@@ -43,12 +45,15 @@
 - Wishlist Management
 - User Profile Page
 - Checkout Page
-- Authenticatio
-    - Login
+- Authentication
+    - Signin
     - Signup
     - Logout
    
 ## Demo -
+
+
+https://user-images.githubusercontent.com/65344146/162206235-1c5e12de-239a-41c3-8768-f8199873e201.mp4
 
 
 
