@@ -18,14 +18,13 @@ body {
 
 .navbar__search {
     width: 20rem;
-    position: relative;
     display: flex;
     align-items: center;
+    position: relative;
 }
 
 .btn:hover {
     background-color: var(--off-white);
-    border: 1px solid var(--primary-color);
     color: var(--black);
 }
 
@@ -37,6 +36,13 @@ body {
     border-width: 0;
     border: 1px solid;
     padding-left: .5rem;
+    position: relative;
+}
+
+.search__icon {
+    position: absolute;
+    right: 0;
+    cursor: pointer;
 }
 
 .navbar__right {

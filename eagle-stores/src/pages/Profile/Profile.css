@@ -10,22 +10,15 @@
     flex-wrap: wrap;
 }
 
-.profile {
-    width: 17.87rem;
-    background-color: var(--bg-color);
-    height: 21rem;
+.btn__logout {
+    width: fit-content;
+    margin: 1rem;
+    padding: .5rem 1rem;
 }
 
-.profile__heading {
-    display: flex;
-    align-items: center;
-}
-
-.list__item {
-    border: none;
-    color: var(--color);
+.logout__text {
     font-size: 1rem;
-    font-weight: 500;
+    font-weight: 550;
 }
 
 .profile__list {

@@ -1,30 +1,36 @@
-.category__container{
+.category__container {
     margin: 2rem auto;
 }
-.category__card{
-    filter: blur(var(--value, 1rem)); --value:2px;
+
+.category__card {
+    filter: blur(var(--value, 1rem));
+    --value: 2px;
     position: relative;
-    border-radius: 5px;
-    margin: 0 auto;
-    height: 14rem;
+    border-radius: 10px;
+    margin: 1rem auto 0 auto;
+    cursor: pointer;
 }
-.category__card:hover{
-    filter: blur(var(--value, 1rem)); --value:0;
+
+.category__card:hover {
+    filter: blur(var(--value, 1rem));
+    --value: 0;
 }
-.category__heading{
+
+.category__heading {
     padding: 1rem 0 3rem 0;
 }
-.category__name{
+
+.category__name {
     transform: translateY(40px);
     transition: .5s;
     opacity: 0;
     position: absolute;
     left: 70px;
-    bottom: 10px;
+    bottom: 5px;
     color: black;
 }
 
-.category__card:hover h3{
+.category__card:hover h3 {
     transform: translateY(0px);
     opacity: 1;
 }

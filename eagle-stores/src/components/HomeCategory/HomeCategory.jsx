@@ -1,14 +1,36 @@
 import { useNavigate } from 'react-router-dom';
+import { useData } from '../../context';
+import { ACTION_TYPE } from '../../utils/actionType';
 import './HomeCategory.css';
 
 export const HomeCategory = () => {
   const navigate = useNavigate();
+  const { state, dispatch } = useData();
+
+  const categoryFilter = (cat) => {
+    dispatch({
+      type: ACTION_TYPE.FILTER_CHANGE,
+      payload: {
+        filterType: 'categories',
+        filterValue: {
+          ...Object.keys(state.filter.categories).reduce((acc, curr) => {
+            return { ...acc, [curr]: false };
+          }, {}),
+          [cat]: true,
+        },
+      },
+    });
+    navigate('/product');
+  };
   return (
     <>
       <div className='category__container'>
         <h2 className='text__center category__heading'>Popular Categories</h2>
         <main className='product'>
-          <div onClick={() => navigate('/product')} className='product__cards '>
+          <div
+            onClick={() => categoryFilter('laptop')}
+            className='product__cards '
+          >
             <div className='product__card category__card'>
               <div className='product__image'>
                 <img
@@ -22,7 +44,7 @@ export const HomeCategory = () => {
             </div>
 
             <div
-              onClick={() => navigate('/product')}
+              onClick={() => categoryFilter('phone')}
               className='product__card category__card'
             >
               <div className='product__image'>
@@ -37,7 +59,7 @@ export const HomeCategory = () => {
             </div>
 
             <div
-              onClick={() => navigate('/product')}
+              onClick={() => categoryFilter('earbuds')}
               className='product__card category__card'
             >
               <div className='product__image'>

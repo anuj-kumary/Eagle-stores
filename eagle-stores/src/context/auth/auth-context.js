@@ -36,7 +36,7 @@ const AuthProvider = ({ children }) => {
         setToken(resp.data.encodedToken);
       }
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 

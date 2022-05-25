@@ -79,6 +79,38 @@ export const IncDecCart = async ({ encodedToken, productId, type }) => {
   );
 };
 
+export const postAddressServices = async ({ address, token }) => {
+  return await axios.post(
+    '/api/user/address',
+    { address },
+    {
+      headers: {
+        authorization: token,
+      },
+    }
+  );
+};
+
+export const editAddressServices = async ({ address, token }) => {
+  return axios.post(
+    `/api/user/address/edit/${address._id}`,
+    { address },
+    {
+      headers: {
+        authorization: token,
+      },
+    }
+  );
+};
+
+export const deleteAddressServices = async (addresId, token) => {
+  return axios.delete(`/api/user/address/${addresId}`, {
+    headers: {
+      authorization: token,
+    },
+  });
+};
+
 export const DeleteCart = async ({ productId, encodedToken }) => {
   return await axios.delete(`/api/user/cart/${productId}`, {
     headers: {

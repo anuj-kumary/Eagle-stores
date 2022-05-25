@@ -11,6 +11,7 @@ export const initialistate = {
   products: [],
   cartlist: [],
   wishlist: [],
+  address: [],
 };
 
 export const DataReducer = (state, action) => {
@@ -82,6 +83,18 @@ export const DataReducer = (state, action) => {
       return {
         ...state,
         cartlist: action.payload.cartlist,
+      };
+
+    case ACTION_TYPE.ADDRESS:
+      return {
+        ...state,
+        address: action.payload.address,
+      };
+
+    case ACTION_TYPE.DELETE_ADDRESS:
+      return {
+        ...state,
+        address: action.payload.address,
       };
 
     case ACTION_TYPE.WISHLIST:
