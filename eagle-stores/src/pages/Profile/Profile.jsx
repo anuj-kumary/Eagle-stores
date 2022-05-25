@@ -31,28 +31,6 @@ export const Profile = () => {
   return (
     <>
       <div className='container'>
-        <div className='card profile'>
-          <header className='card__heading profile__heading'>
-            <img
-              className='avatar__img md'
-              src='https://rb.gy/xqmshi'
-              alt='Avatar'
-            />
-            <span>John Doe</span>
-          </header>
-
-          <div className='card__desc profile__list'>
-            <a className='list__item'>My Order</a>
-            <a className='list__item'>Setting</a>
-            <Link
-              to='/logout'
-              onClick={(e) => logoutHandler(e)}
-              className='list__item'
-            >
-              LogOut
-            </Link>
-          </div>
-        </div>
         <div className='card user-details'>
           <h3 className='user__heading'>Customer Profile</h3>
           <p className='user__name'>
@@ -64,7 +42,15 @@ export const Profile = () => {
           <p className='user__email'>
             Eamil <span className='user__detail'>{email}</span>
           </p>
-          <button className='btn'>Change Password</button>
+          <button className='btn__logout'>
+            <Link
+              className='logout__text'
+              to='/logout'
+              onClick={(e) => logoutHandler(e)}
+            >
+              LogOut
+            </Link>
+          </button>
         </div>
       </div>
     </>

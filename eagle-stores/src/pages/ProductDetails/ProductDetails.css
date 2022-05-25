@@ -72,7 +72,12 @@
     font-weight: 700;
 }
 
-.btn {
+.btn__detaills .btn {
+    border: 0;
     margin: .7rem 0;
     width: 100%;
+}
+
+.btn__detaills .btn__success {
+    border: 1px solid green;
 }

@@ -11,6 +11,14 @@ export const NavBar = () => {
   const [input, setInput] = useState('');
   const navigate = useNavigate();
 
+  const searchHandler = () => {
+    let id;
+    return function () {
+      clearTimeout(id);
+      id = setTimeout(() => {});
+    };
+  };
+
   return (
     <>
       <nav className='navigation'>
@@ -25,22 +33,35 @@ export const NavBar = () => {
             onChange={(e) => {
               setInput(e.target.value);
             }}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter' || e.target.value === '') {
-                dispatch({
-                  type: ACTION_TYPE.FILTER_CHANGE,
-                  payload: {
-                    filterType: 'search',
-                    filterValue: e.target.value,
-                  },
-                });
-                navigate('/product');
-              }
-            }}
+            // onKeyDown={(e) => {
+            //   if (e.key === 'Enter' || e.target.value === '') {
+            //     dispatch({
+            //       type: ACTION_TYPE.FILTER_CHANGE,
+            //       payload: {
+            //         filterType: 'search',
+            //         filterValue: e.target.value,
+            //       },
+            //     });
+            //     navigate('/product');
+            //   }
+            // }}
             className='search__box'
-            type='search'
+            type='text'
             placeholder='Search with name or categories'
           />
+          <i
+            onClick={(e) => {
+              dispatch({
+                type: ACTION_TYPE.FILTER_CHANGE,
+                payload: {
+                  filterType: 'search',
+                  filterValue: input,
+                },
+              });
+              navigate('/product');
+            }}
+            className='search__icon fas fa-search'
+          ></i>
         </ul>
 
         <ul className='navbar__right'>

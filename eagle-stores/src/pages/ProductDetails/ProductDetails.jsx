@@ -79,15 +79,12 @@ export const ProductDetails = () => {
                 omnis in explicabo voluptas dolore dolor beatae eius eos.
                 Exercitationem cupiditate optio illo eveniet.
               </p>
-              <div className='product__button'>
+              <div className='product__button btn__detaills'>
                 <button
                   onClick={(e) => cartHandler(e)}
                   className={cart ? 'btn btn__success' : 'btn btn__primary'}
                 >
                   {cart ? 'Go To Cart' : 'Add To Cart'}
-                </button>
-                <button className='btn btn--outlined outlined__secondary'>
-                  Buy Now
                 </button>
               </div>
             </div>

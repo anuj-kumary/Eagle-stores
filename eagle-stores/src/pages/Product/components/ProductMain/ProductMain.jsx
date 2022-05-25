@@ -15,12 +15,7 @@ export const ProductMain = () => {
   return (
     <>
       <main className='product'>
-        <h4 className='heading fw__500'>
-          Showing All Products
-          <span className='product__subtext fw__400'>
-            (Showing {state.products.length} products)
-          </span>
-        </h4>
+        <h4 className='heading fw__500'>Showing All Products</h4>
         <ProductCard state={state} />
       </main>
     </>

@@ -7,6 +7,12 @@
     justify-content: space-evenly;
 }
 
+.checkout__box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .address__name {
     display: inline;
 }
