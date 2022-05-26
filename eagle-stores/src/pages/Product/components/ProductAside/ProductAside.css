@@ -61,13 +61,14 @@ input[type=checkbox] {
     bottom: 4px;
     display: flex;
     display: none;
-    justify-content: center;
+    justify-content: space-around;
 }
 
 .mobile__filter_sidebar {
     display: flex;
     flex-direction: column;
     width: 100vw;
+    height: 100vh;
     border-radius: 1px solid var(--grey);
     padding: 1rem 2rem;
     grid-gap: 2rem;

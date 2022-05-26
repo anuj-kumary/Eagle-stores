@@ -66,3 +66,10 @@
     color: var(--off-white);
     font-size: 1.1rem;
 }
+
+@media screen and (max-width:700px) {
+    .checkout__container {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+}

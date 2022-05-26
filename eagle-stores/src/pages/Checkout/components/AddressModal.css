@@ -16,3 +16,10 @@
     display: flex;
     justify-content: center;
 }
+
+@media screen and (max-width:700px) {
+    .adress__card {
+        padding: 2rem;
+        transform: translate(-50%, -50%);
+    }
+}

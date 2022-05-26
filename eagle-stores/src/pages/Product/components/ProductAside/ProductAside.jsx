@@ -160,6 +160,14 @@ export const ProductAside = () => {
             Filter
           </button>
         )}
+        {sidebar && (
+          <button
+            onClick={() => setSidebar(!sidebar)}
+            className='btn btn__default'
+          >
+            Cancel
+          </button>
+        )}
       </div>
     </>
   );
