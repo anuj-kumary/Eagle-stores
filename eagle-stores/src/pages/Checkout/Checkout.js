@@ -13,7 +13,8 @@ export const Checkout = () => {
   const [addressModal, setAddressModal] = useState(false);
   const { user, token } = useAuth();
   const { state, dispatch } = useData();
-
+  const [checkBoxValidation, setCheckBoxValidation] = useState();
+  console.log(checkBoxValidation);
   const deleteAddressHandler = async (id) => {
     try {
       const response = await deleteAddressServices(id, token);
@@ -36,7 +37,11 @@ export const Checkout = () => {
           {state.address.map((add) => (
             <div key={add._id} className='card card--text'>
               <label>
-                <input type='radio' name='radio' />
+                <input
+                  onChange={(e) => setCheckBoxValidation(add._id)}
+                  type='radio'
+                  name='radio'
+                />
                 <p className='address__name'>{add.houseNo}</p>
               </label>
               <p className='card__desc'>{add.area}</p>
@@ -68,7 +73,7 @@ export const Checkout = () => {
             ) : null}
           </div>
         </div>
-        <Checkoutprice />
+        <Checkoutprice checkBoxValidation={checkBoxValidation} />
       </div>
     </>
   );

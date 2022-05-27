@@ -54,7 +54,9 @@ export const ProductDetails = () => {
   }, [cartlist]);
 
   const product = products.find((product) => product._id === productId);
-  const { _id, name, img, originalPrice, brand, rating } = product || {};
+  const { _id, name, img, originalPrice, brand, rating, out_of_stock } =
+    product || {};
+  console.log(out_of_stock);
 
   return (
     <>
@@ -81,8 +83,11 @@ export const ProductDetails = () => {
               </p>
               <div className='product__button btn__detaills'>
                 <button
+                  disabled={out_of_stock}
                   onClick={(e) => cartHandler(e)}
-                  className={cart ? 'btn btn__success' : 'btn btn__primary'}
+                  className={`carts__btn ${
+                    cart ? 'btn btn__success' : 'btn btn__primary'
+                  }`}
                 >
                   {cart ? 'Go To Cart' : 'Add To Cart'}
                 </button>

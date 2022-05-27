@@ -56,7 +56,7 @@ export const CartCard = ({ item }) => {
           type: ACTION_TYPE.SETCART_LIST,
           payload: { cartlist: res.data.cart },
         });
-        ToastHandler('success', 'Cart deleted successfully');
+        ToastHandler('warn', 'Cart deleted successfully');
       }
     } catch (err) {
       console.log(err);

@@ -78,6 +78,10 @@
     width: 100%;
 }
 
+.carts__btn:hover {
+    border: 1px solid var(--primary-color);
+}
+
 .btn__detaills .btn__success {
     border: 1px solid green;
 }

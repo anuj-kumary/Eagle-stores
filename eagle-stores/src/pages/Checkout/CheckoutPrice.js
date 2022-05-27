@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { clearCart } from '../../services/Services';
 import { ACTION_TYPE } from '../../utils/actionType';
 
-export const Checkoutprice = () => {
+export const Checkoutprice = ({ checkBoxValidation }) => {
   const { state, dispatch } = useData();
   const { orderDispatch } = useOrder();
   const cartData = [...state.cartlist];
@@ -71,50 +71,54 @@ export const Checkoutprice = () => {
   };
 
   const displayRazorpay = async () => {
-    const res = await loadScript(
-      'https://checkout.razorpay.com/v1/checkout.js'
-    );
+    if (checkBoxValidation) {
+      const res = await loadScript(
+        'https://checkout.razorpay.com/v1/checkout.js'
+      );
 
-    if (!res) {
-      Notify('Razorpay SDK failed to load, check you connection', 'error');
-      return;
+      if (!res) {
+        Notify('Razorpay SDK failed to load, check you connection', 'error');
+        return;
+      }
+
+      const options = {
+        key: 'rzp_test_DXQN0ZuiAL0cO1',
+        amount: totalPrice * 100,
+        currency: 'INR',
+        name: 'Eagle Store',
+        description: 'Thank you for shopping with us',
+        image:
+          'https://res.cloudinary.com/anujy0510/image/upload/v1649229979/favicon_rmrwre.png',
+        handler: function (response) {
+          const tempObj = {
+            products: [...cartData],
+            amount: totalPrice,
+            paymentId: response.razorpay_payment_id,
+          };
+          orderDispatch({ type: 'ADD_ORDERS', payload: tempObj });
+          ToastHandler('success', 'Payment succesfull');
+          navigate('/order');
+          Popper();
+          clearCart(dispatch, cartData, token);
+          dispatch({
+            type: ACTION_TYPE.SETCART_LIST,
+            payload: { cartlist: [] },
+          });
+        },
+        prefill: {
+          name: `${firstName} ${lastName}`,
+          email: email,
+          contact: '9833445762',
+        },
+        theme: {
+          color: '#392F5A',
+        },
+      };
+      const paymentObject = new window.Razorpay(options);
+      paymentObject.open();
+    } else {
+      ToastHandler('warn', 'Please select or add new adress');
     }
-
-    const options = {
-      key: 'rzp_test_DXQN0ZuiAL0cO1',
-      amount: totalPrice * 100,
-      currency: 'INR',
-      name: 'Eagle Store',
-      description: 'Thank you for shopping with us',
-      image:
-        'https://res.cloudinary.com/anujy0510/image/upload/v1649229979/favicon_rmrwre.png',
-      handler: function (response) {
-        const tempObj = {
-          products: [...cartData],
-          amount: totalPrice,
-          paymentId: response.razorpay_payment_id,
-        };
-        orderDispatch({ type: 'ADD_ORDERS', payload: tempObj });
-        ToastHandler('success', 'Payment succesfull');
-        navigate('/order');
-        Popper();
-        clearCart(dispatch, cartData, token);
-        dispatch({
-          type: ACTION_TYPE.SETCART_LIST,
-          payload: { cartlist: [] },
-        });
-      },
-      prefill: {
-        name: `${firstName} ${lastName}`,
-        email: email,
-        contact: '9833445762',
-      },
-      theme: {
-        color: '#392F5A',
-      },
-    };
-    const paymentObject = new window.Razorpay(options);
-    paymentObject.open();
   };
 
   return (

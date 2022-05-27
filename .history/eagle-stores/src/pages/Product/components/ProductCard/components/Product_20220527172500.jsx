@@ -70,7 +70,7 @@ export default function Product({ item }) {
         });
       }
       if (wish)
-        ToastHandler('success', 'Successfully deleted product from wishlist');
+        ToastHandler('warn', 'Successfully deleted product from wishlist');
       else ToastHandler('success', 'Successfully added to wishlist');
     } catch (err) {
       console.log(err);

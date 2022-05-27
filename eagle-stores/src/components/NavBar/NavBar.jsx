@@ -33,18 +33,18 @@ export const NavBar = () => {
             onChange={(e) => {
               setInput(e.target.value);
             }}
-            // onKeyDown={(e) => {
-            //   if (e.key === 'Enter' || e.target.value === '') {
-            //     dispatch({
-            //       type: ACTION_TYPE.FILTER_CHANGE,
-            //       payload: {
-            //         filterType: 'search',
-            //         filterValue: e.target.value,
-            //       },
-            //     });
-            //     navigate('/product');
-            //   }
-            // }}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.target.value === '') {
+                dispatch({
+                  type: ACTION_TYPE.FILTER_CHANGE,
+                  payload: {
+                    filterType: 'search',
+                    filterValue: e.target.value,
+                  },
+                });
+                navigate('/product');
+              }
+            }}
             className='search__box'
             type='text'
             placeholder='Search with name or categories'
